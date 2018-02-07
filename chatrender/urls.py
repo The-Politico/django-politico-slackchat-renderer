@@ -1,7 +1,13 @@
 from django.urls import path
 
-from .views import Home
+from .views import Endpoint, channel, develop
 
 urlpatterns = [
-    path('', Home.as_view(), name='chatrender-home'),
+    path('endpoint/', Endpoint.as_view()),
+    path(
+        'develop/<slug:chat_type>/<slug:channel>/',
+        develop,
+        name="chatrender-channel"
+    ),
+    path('<slug:chat_type>/channels/', channel),
 ]

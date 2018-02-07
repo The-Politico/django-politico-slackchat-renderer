@@ -38,7 +38,7 @@ module.exports = port => ({
                 },
               ],
               'react',
-              'stage-0',
+              'stage-2',
               'airbnb',
             ],
           },

@@ -1,2 +1,4 @@
 # flake8: noqa
-from .home import Home
+from .endpoint import Endpoint
+from .develop import develop
+from .channel import channel

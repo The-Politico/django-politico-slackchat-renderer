@@ -1,0 +1,30 @@
+{%extends "chatrender/common/base.html"%}
+{%load staticfiles%}
+{%load markdown_tags%}
+
+
+{% block styles %}
+{%if not develop%}
+<link rel="stylesheet" href="main-blog.css">
+{%endif%}
+{% endblock %}
+
+{% block scripts %}
+{%if develop%}
+<input name="channel-uri" type="hidden" value="{{channel_uri}}" />
+<script src="{% static 'chatrender/js/main-blog.js' %}"></script>
+{%else%}
+<input name="channel-uri" type="hidden" value="chat.json" />
+<script src="main-blog.js"></script>
+{%endif%}
+{% endblock %}
+
+{%block content%}
+<h1>{{channel.title}}</h1>
+
+{{channel.introduction|markdown}}
+
+<a href="{{channel_uri}}">link</a>
+
+<div id="blog"></div>
+{%endblock%}

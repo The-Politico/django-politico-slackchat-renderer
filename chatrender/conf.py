@@ -5,12 +5,28 @@ with any overrides set in project settings.
 
 from django.conf import settings as project_settings
 
-from .exceptions import ChatrenderConfigError
-
 
 class Settings:
     pass
 
+
+Settings.WEBHOOK_VERIFICATION_TOKEN = getattr(
+    project_settings,
+    'CHATRENDER_WEBHOOK_VERIFICATION_TOKEN',
+    'slackchat'
+)
+
+Settings.SERIALIZER_API_URL = getattr(
+    project_settings,
+    'CHATRENDER_SERIALIZER_API_URL',
+    None
+)
+
+Settings.AWS_PUBLISH_ROOT = getattr(
+    project_settings,
+    'CHATRENDER_AWS_PUBLISH_ROOT',
+    'interactives/slackchats/'
+)
 
 Settings.AUTH_DECORATOR = getattr(
     project_settings,
