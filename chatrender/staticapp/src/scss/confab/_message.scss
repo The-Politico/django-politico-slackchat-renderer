@@ -1,0 +1,40 @@
+.message{
+  background: #f6f6f6;
+  padding: 20px 20px 20px;
+  border: 1px solid darken(#f6f6f6, 3%);
+  border-radius: 10px;
+  margin: 20px 5px;
+  position: relative;
+  .content{
+    max-width: 100%;
+    margin-bottom: 10px;
+    margin-top: 25px;
+
+    img{
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-bottom: 10px;
+
+      &.emoji{
+        width: 1em;
+        height: 1em;
+        margin: 0px 0.05em 0px 0.1em;
+        vertical-align: -0.1em;
+      }
+    }
+
+    p{
+      font-family: $franklin;
+      font-size: 18px;
+      line-height: 25px;
+      margin: 10px 5px;
+    }
+    span.mention{
+      font-weight: bold;
+      color: $black;
+      background-color: $highlighter-orange;
+      padding: 0 2px;
+      display: inline-block;
+    }
+  }
+}

@@ -28,4 +28,3 @@ django-cors-headers = "*"
 
 
 [dev-packages]
-

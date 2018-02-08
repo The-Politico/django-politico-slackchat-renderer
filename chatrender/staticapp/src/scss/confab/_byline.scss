@@ -1,0 +1,37 @@
+.byline{
+  .byline-pic{
+    width: 45px;
+    display: inline-block;
+    float: left;
+    figure img{
+      max-width: 100%;
+      border-radius: 50%;
+    }
+  }
+  .byline-identity{
+    width: calc(100% - 120px);
+    padding: 6px 10px 0;
+    display: inline-block;
+    float: left;
+    line-height: 1em;
+    .name{
+      font-weight: bold;
+      font-size: 20px;
+      display: inline-block;
+    }
+    .title{
+      font-size: 14px;
+      line-height: 14px;
+      color: $satan;
+      display: inline-block;
+    }
+  }
+  .byline-timestamp{
+    display: inline-block;
+    float: left;
+    width: 70px;
+    font-size: 14px;
+    color: $satan;
+    text-align: right;
+  }
+}

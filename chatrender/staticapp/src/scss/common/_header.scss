@@ -1,81 +1,98 @@
-#global-header {
-  @include clearfix;
-  background: $politico-red;
+// Header and h groups
+header {
+  padding: 0 20px;
+  margin-top: 40px;
 
-  #global-header, ul {
-    @include clearfix;
+  @media (max-width: $width-medium) {
+    padding: 0 15px 15px;
   }
 
-  .icon-politico {
-    font-size: 16px;
-    line-height: 46px;
-    margin-left: .7em;
+  & + figure{
+    margin-top: 0;
   }
 
-  a {
-    color: $white;
+  p.category {
+    color: $satan;
+    font-family: $proxima;
+    font-size: 1.2em;
+    margin-bottom: -5px;
+    .fa-comments{
+      color: $politico-red;
+    }
+  }
 
-      &:hover, &:focus{
-        text-decoration: none;
-        opacity: .8;
-      }
+  h1 {
+    font-family: $tablet;
+    font-size: 3.33em;
+    font-weight: bold;
+    line-height: 1.1em;
+    margin: 0;
+    padding: 0px 5px 10px;
+    max-width: 900px;
+
+    @media (max-width: $width-medium) {
+      font-size: 2.4em;
+      margin: 5px 0 15px;
+      padding: 0;
     }
 
-  #global-branding {
-    float: left;
+    @media (max-width: $width-small) {
+      font-size: 2em;
+      margin-top: 0;
+    }
   }
 
-  #nav-micro {
-    float: right;
+  .subhead {
+    max-width: 750px;
+    padding: 0;
+    font-family: $proxima;
+    font-size: 1.28rem;
+    font-weight: normal;
+    line-height: 1.18;
+    margin: 5px 0 10px 0;
+    padding-bottom: 0;
 
-    .icon.icon-pro-small-bold {
-      font-size: 1em;
-      line-height: 2.29166666666667em;
-      padding: 0 .3125em;
+    @media (max-width: $width-medium) {
+      font-size: 1.1em;
+      }
+
+  }
+
+  .info p,
+  .info a {
+    max-width: 750px;
+    color: $satan;
+    font-family: $proxima;
+    line-height: 1.27rem;
+    margin-top: .5rem;
+    font-size: 1em;
+    margin-bottom: 10px;
+
+    @media (max-width: $width-small) {
+      font-size: .9em;
     }
+  }
 
-    ul {
-      list-style: none;
-      margin-bottom: 1px;
-      padding-bottom: 0;
 
-      li{
-        float:left;
-      }
-
-      li > a {
-        background: $politico-red;
-        border-left: 1px solid $politico-dark-red;
-        display: block;
-        font-family: $tablet;
-        font-weight: 700;
-        line-height: 45px;
-        min-width: 2.5em;
-        padding: 0 .9375em;
-        position: relative;
-        text-align: center;
-      }
+  .info{
+    a:hover, a:focus{
+      text-decoration: underline;
+    }
+    .byline{
+      text-transform:uppercase;
+      font-weight: 700;
     }
   }
 }
 
-//Light Theme
-.light-theme {
-  #global-header {
-    background: $white;
-    border-bottom: 0;
-  }
-
-  #global-header a, #global-footer a  {
-    color: $politico-red;
-  }
-
-  #global-header.icon , nav .icon {
-  color: $politico-red;
-  }
-
-  .micro-list>li>a {
-  background: $white;
-  border: 0;
+ header.center{
+  p.category,
+  p.category a,
+  h1,
+  p.subhead,
+  .info p{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   }
 }

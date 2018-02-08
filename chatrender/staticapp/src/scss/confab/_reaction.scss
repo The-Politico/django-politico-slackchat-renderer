@@ -1,0 +1,38 @@
+.reactions-drawer{
+  position: absolute;
+  display: inline-block;
+  bottom: -15px;
+  right: 15px;
+  padding: 4px 6px 5px;
+  border-radius: 10px;
+  background-color: #fff;
+
+  .reaction{
+    font-size: 22px;
+    background-color: white;
+    display: inline-block;
+    margin: 0 3px;
+    cursor:pointer;
+  }
+}
+
+.reaction-tooltip{
+  padding: 0 !important;
+  background-color: transparent !important;
+
+  img{
+    opacity: 0 !important;
+    transition: all .25s;
+  }
+  &.show img{
+    opacity: 1 !important;
+  }
+  img{
+    width: 40px;
+    border-radius: 50%;
+    border:2px solid #fff;
+  }
+  &:after{
+    border: none !important;
+  }
+}

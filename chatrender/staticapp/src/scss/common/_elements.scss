@@ -229,3 +229,9 @@ ul.no-bullets{
     }
   }
 }
+
+.clearfix::after {
+  display: block;
+  content: "";
+  clear: both;
+}

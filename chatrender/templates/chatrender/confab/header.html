@@ -1,0 +1,25 @@
+{%load date_tags%}
+<header class="center">
+    <div class="share">
+       <a href="" class="icon icon-facebook" target="_blank"></a>
+       <a href="" class="icon icon-twitter" target="_blank"></a>
+    </div>
+    <p class="category">
+      <i class="far fa-comments"></i> Confab
+    </p>
+    <h1>
+      {{channel.title}}
+    </h1>
+    <div class="info">
+        <p>
+            With
+            {% for a, value in channel.users.items %}
+              <span class="byline">
+                <a>{{value.first_name}} {{value.last_name}}</a>
+                {%if not forloop.last%},{%endif%}
+              </span>
+            {%endfor%}
+              | <span class="timestamp"> <time datetime="">{{channel.publish_time|timestamp|date:"m/d/y h:m a"}}</time></span>
+        </p>
+    </div>
+</header>

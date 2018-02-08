@@ -3,9 +3,14 @@
 @import './../common/fonts';
 @import './../common/breakpoints';
 @import './../common/elements';
+@import './../common/nav';
+@import './../common/share';
 @import './../common/header';
 @import './../common/footer';
+@import './../common/ads';
 
-.reaction{
-  font-size: 32px;
-}
+@import './page';
+@import './well';
+@import './message';
+@import './byline';
+@import './reaction';

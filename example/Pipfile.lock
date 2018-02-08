@@ -214,10 +214,10 @@
         },
         "markslack": {
             "hashes": [
-                "sha256:9f232b80712d6ed843d9bbf63427fbee96f704f04be054e3fb4e4ca5162ad27c",
-                "sha256:d1b9f3564c3309a0258ae12f83efc962f3c0e8e6f4674f469a640b0b3aa9aba8"
+                "sha256:dfbfcdc191970ac9e055d91bfe92544a6b7e6740fb600c29a5dcb16470d1e696",
+                "sha256:ef4baa14de9b4a84e4341572db5a72d81a47ae7c6c55d2b2ce467f7f88fbcad8"
             ],
-            "version": "==0.0.0a3"
+            "version": "==0.0.2"
         },
         "markupsafe": {
             "hashes": [

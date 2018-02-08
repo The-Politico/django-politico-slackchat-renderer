@@ -6,8 +6,9 @@
   },
   "rules": {
     "no-console": 0,
-    "comma-dangle": ["error", "always"],
-    "semi": ["error", "always"]
+    "comma-dangle": ["error", "always-multiline"],
+    "semi": ["error", "always"],
+    "react/prop-types": 0
   },
   "extends": ["standard", "standard-react"]
 }
