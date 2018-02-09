@@ -3,21 +3,27 @@ from urllib.parse import urljoin
 import requests
 
 from chatrender.conf import settings
+from django.conf import settings as project_settings
 from django.shortcuts import render
-
-CHANNEL_API_URI = urljoin(settings.SERIALIZER_API_URL, 'channel/')
 
 
 def develop(request, chat_type, channel):
-    channel_uri = urljoin(CHANNEL_API_URI, channel)
+    channel_uri = urljoin(settings.SLACKCHAT_CHANNEL_ENDPOINT, channel)
+    if project_settings.DEBUG:
+        channel_uri = urljoin(
+            settings.DEV_SLACKCHAT_CHANNEL_ENDPOINT,
+            channel
+        )
     response = requests.get(channel_uri)
-    context = response.json()
+    channel = response.json()
     return render(
         request,
         'chatrender/{}/index.html'.format(chat_type),
         context={
-            "channel": context,
+            "channel": channel,
             "channel_uri": channel_uri,
+            "origin": settings.AWS_CUSTOM_ORIGIN,
+            "publish_path": settings.AWS_S3_PUBLISH_PATH,
             "develop": True,
         }
     )

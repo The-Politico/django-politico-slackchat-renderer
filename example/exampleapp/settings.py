@@ -18,6 +18,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'corsheaders',
     'rest_framework',
     'rest_framework_swagger',
@@ -64,6 +65,9 @@ else:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'OPTIONS': {
+            'timeout': 20,
+        }
     }
 
 
@@ -96,6 +100,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+SITE_ID = 1
+
 #########################
 # chatrender settings
 
@@ -103,17 +109,20 @@ CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
 
 SLACKCHAT_SLACK_VERIFICATION_TOKEN = os.getenv(
     'SLACK_VERIFICATION_TOKEN', None)
 SLACKCHAT_SLACK_API_TOKEN = os.getenv('SLACK_API_TOKEN', None)
 
-CHATRENDER_SERIALIZER_API_URL = 'http://localhost:4000/slackchat/api/'
-CHATRENDER_SECRET_KEY = ''
-CHATRENDER_AWS_ACCESS_KEY_ID = ''
-CHATRENDER_AWS_SECRET_ACCESS_KEY = ''
-CHATRENDER_AWS_REGION = ''
-CHATRENDER_AWS_S3_BUCKET = ''
-CHATRENDER_CLOUDFRONT_ALTERNATE_DOMAIN = ''
-CHATRENDER_S3_UPLOAD_ROOT = ''
+CHATRENDER_AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+CHATRENDER_AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+CHATRENDER_AWS_S3_BUCKET = os.getenv('AWS_S3_BUCKET')
+CHATRENDER_AWS_S3_PUBLISH_PATH = '/slackchats/'
+CHATRENDER_AWS_CUSTOM_ORIGIN = 'https://www.politico.com/interactives/'
+CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT = (
+    'http://localhost:4000/slackchat/api/channel/'
+)
+CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT = (
+    'http://398ccc33.ngrok.io/slackchat/api/channel/'
+)

@@ -16,16 +16,28 @@ Settings.WEBHOOK_VERIFICATION_TOKEN = getattr(
     'slackchat'
 )
 
-Settings.SERIALIZER_API_URL = getattr(
+Settings.SLACKCHAT_CHANNEL_ENDPOINT = getattr(
     project_settings,
-    'CHATRENDER_SERIALIZER_API_URL',
+    'CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT',
     None
 )
 
-Settings.AWS_PUBLISH_ROOT = getattr(
+Settings.DEV_SLACKCHAT_CHANNEL_ENDPOINT = getattr(
     project_settings,
-    'CHATRENDER_AWS_PUBLISH_ROOT',
-    'interactives/slackchats/'
+    'CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT',
+    None
+)
+
+Settings.AWS_S3_PUBLISH_PATH = getattr(
+    project_settings,
+    'CHATRENDER_AWS_S3_PUBLISH_PATH',
+    '/slackchats/'
+)
+
+Settings.AWS_CUSTOM_ORIGIN = getattr(
+    project_settings,
+    'CHATRENDER_AWS_CUSTOM_ORIGIN',
+    None
 )
 
 Settings.AUTH_DECORATOR = getattr(
@@ -44,16 +56,10 @@ Settings.AWS_SECRET_ACCESS_KEY = getattr(
     project_settings, 'CHATRENDER_AWS_SECRET_ACCESS_KEY', None)
 
 Settings.AWS_REGION = getattr(
-    project_settings, 'CHATRENDER_AWS_REGION', None)
+    project_settings, 'CHATRENDER_AWS_REGION', 'us-east-1')
 
 Settings.AWS_S3_BUCKET = getattr(
     project_settings, 'CHATRENDER_AWS_S3_BUCKET', None)
-
-Settings.CLOUDFRONT_ALTERNATE_DOMAIN = getattr(
-    project_settings, 'CHATRENDER_CLOUDFRONT_ALTERNATE_DOMAIN', None)
-
-Settings.S3_UPLOAD_ROOT = getattr(
-    project_settings, 'CHATRENDER_S3_UPLOAD_ROOT', 'uploads/chatrender')
 
 
 settings = Settings

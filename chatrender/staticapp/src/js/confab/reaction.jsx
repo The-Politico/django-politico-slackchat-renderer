@@ -9,14 +9,16 @@ const Reaction = (props) => (
       place='top'
       offset={{right: '15px', bottom: '7px'}}
       effect='solid'
+      id={props.usertimestamp}
       getContent={() => (
         <img
           className='reaction-tooltip-image'
-          src={'https://upload.wikimedia.org/wikipedia/commons/b/bb/Tibur%C3%B3n.jpg'}
+          src={props.user.image}
         />)}
     />
     <Twemoji
       data-tip
+      data-for={props.usertimestamp}
       text={`:${props.reaction}:`}
     />
   </div>

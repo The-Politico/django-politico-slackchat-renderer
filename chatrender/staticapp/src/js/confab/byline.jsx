@@ -15,7 +15,7 @@ const Byline = (props) => (
   <div className='byline clearfix'>
     <div className='byline-pic'>
       <figure>
-        <img src='https://upload.wikimedia.org/wikipedia/commons/b/bb/Tibur%C3%B3n.jpg' />
+        <img src={`${props.author.image}`} />
       </figure>
     </div>
     <div className='byline-identity'>

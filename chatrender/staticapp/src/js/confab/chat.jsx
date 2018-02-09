@@ -25,6 +25,8 @@ class Chat extends React.Component {
   componentDidUpdate () {
     if (this.state.chat.live) {
       setTimeout(this.fetchChat, 2500);
+    } else {
+      setTimeout(this.fetchChat, 15000);
     }
 
     window.twttr.widgets.load(document.getElementById('blog'));
@@ -32,7 +34,7 @@ class Chat extends React.Component {
 
   fetchChat () {
     console.log('polls');
-    fetch(`${channelURI}/`)
+    fetch(`${channelURI}`)
       .then(response => response.json())
       .then(data => {
         this.setState({ chat: data });
@@ -64,7 +66,7 @@ class Chat extends React.Component {
                 isDynamic: true,
               });
             }}
-          ><FontAwesomeIcon icon={faArrowDown} /> Latest</button>
+          ><FontAwesomeIcon icon={faArrowDown} /></button>
         </div>
       </Sticky>
     ) : (
@@ -95,7 +97,7 @@ class Chat extends React.Component {
                 animateScroll.scrollToTop();
               }}
             >
-              <FontAwesomeIcon icon={faArrowUp} /> Start
+              <FontAwesomeIcon icon={faArrowUp} />
             </button>
           </div>
         </div>

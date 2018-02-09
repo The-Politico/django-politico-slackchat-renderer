@@ -1,9 +1,8 @@
 .message{
   background: #f6f6f6;
   padding: 20px 20px 20px;
-  border: 1px solid darken(#f6f6f6, 3%);
   border-radius: 10px;
-  margin: 20px 5px;
+  margin: 20px 5px 25px;
   position: relative;
   .content{
     max-width: 100%;
@@ -32,9 +31,29 @@
     span.mention{
       font-weight: bold;
       color: $black;
-      background-color: $highlighter-orange;
-      padding: 0 2px;
+      background-color: #FFFBCC;
+      padding: 0 4px;
       display: inline-block;
+    }
+    span.slack-announcement{
+      font-weight: bold;
+      color: $politico-red;
+    }
+    blockquote{
+      position: relative;
+      padding-left: 35px;
+      border: 0;
+      &:before {
+        font-family: "Times New Roman", serif;
+        color: #bbb;
+        content: "“";
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 0.1em;
+        position: absolute;
+        top: 35px;
+        left: 2px;
+      }
     }
   }
 }

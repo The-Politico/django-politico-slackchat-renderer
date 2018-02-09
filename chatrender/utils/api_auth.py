@@ -1,7 +1,6 @@
 from chatrender.conf import settings
 from django.conf import settings as project_settings
 from django.contrib.auth.models import AnonymousUser
-from django.utils.decorators import method_decorator
 from rest_framework import authentication, exceptions
 
 

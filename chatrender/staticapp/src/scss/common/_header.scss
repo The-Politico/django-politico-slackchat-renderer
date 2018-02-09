@@ -11,14 +11,13 @@ header {
     margin-top: 0;
   }
 
-  p.category {
-    color: $satan;
-    font-family: $proxima;
-    font-size: 1.2em;
+  p.chat-logo {
+    color: $politico-red;
+    font-family: $franklin;
+    font-weight: bold;
+    text-align: center;
+    font-size: 28px;
     margin-bottom: -5px;
-    .fa-comments{
-      color: $politico-red;
-    }
   }
 
   h1 {
