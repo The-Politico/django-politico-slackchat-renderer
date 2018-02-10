@@ -9,11 +9,11 @@ module.exports = port => ({
   },
   entry: _.zipObject(
     glob.sync('./src/js/main-*.js*').map(f => path.basename(f, path.extname(f))),
-    glob.sync('./src/js/main-*.js*').map(f => f),
-    // glob.sync('./src/js/main-*.js*').map(f => [
-    //   `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr&reload=true`,
-    //   f,
-    // ]),
+    // glob.sync('./src/js/main-*.js*').map(f => f),
+    glob.sync('./src/js/main-*.js*').map(f => [
+      `webpack-hot-middleware/client?path=http://localhost:${port}/__webpack_hmr&reload=true`,
+      f,
+    ]),
   ),
   output: {
     path: '/',

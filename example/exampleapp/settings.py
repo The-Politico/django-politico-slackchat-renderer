@@ -121,8 +121,8 @@ CHATRENDER_AWS_S3_BUCKET = os.getenv('AWS_S3_BUCKET')
 CHATRENDER_AWS_S3_PUBLISH_PATH = '/slackchats/'
 CHATRENDER_AWS_CUSTOM_ORIGIN = 'https://www.politico.com/interactives/'
 CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT = (
-    'http://localhost:4000/slackchat/api/channel/'
+    'http://localhost:8000/slackchat/api/channels/'
 )
 CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT = (
-    'http://398ccc33.ngrok.io/slackchat/api/channel/'
+    'http://80d94f62.ngrok.io/slackchat/api/channels/'
 )

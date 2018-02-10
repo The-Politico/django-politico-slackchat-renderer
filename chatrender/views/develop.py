@@ -15,6 +15,7 @@ def develop(request, chat_type, channel):
             channel
         )
     response = requests.get(channel_uri)
+    print(channel_uri)
     channel = response.json()
     return render(
         request,

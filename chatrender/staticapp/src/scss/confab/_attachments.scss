@@ -1,0 +1,74 @@
+.attachment.link{
+  border-top: 1px solid $border-gray;
+  padding:15px 0 0;
+  margin-top: 20px;
+  .column{
+    padding: 5px;
+  }
+  .column.half{
+    width: 50%;
+    float:left;
+    img{
+      width: 100%;
+    }
+  }
+  a, a:hover{
+    text-decoration: none;
+  }
+
+  .title{
+    h5{
+      font-family: $franklin;
+      color: $black;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 21px;
+      text-align: left;
+    }
+    p{
+      font-family: $franklin;
+      color: $satan;
+      font-size: 13px;
+      line-height: 18px;
+      margin: 0;
+    }
+  }
+  .column div.source{
+    margin-bottom: 5px;
+    p{
+      font-family: $franklin;
+      color: $satan;
+      font-size: 12px;
+      line-height: 12px;
+      margin: 0;
+      img{
+        width: 12px;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.attachment.image{
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-bottom: -20px;
+  figure{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow:hidden;
+  }
+  img{
+    width: 100%;
+  }
+}
+
+.attachment.video {
+  border-top: 1px solid $border-gray;
+  padding:15px 10px 0;
+  margin-top: 20px;
+  text-align: center;
+  iframe{
+    width: 100%;
+  }
+}
