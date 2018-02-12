@@ -31,8 +31,10 @@
     background-color: $politico-red;
     color: #fff;
     border: 0;
-    padding: 1px 4px;
+    padding: 1px 15px;
     border-radius: 4px;
+    font-size: 14px;
+    line-height: 18px;
     &:focus{
       outline: none;
     }
