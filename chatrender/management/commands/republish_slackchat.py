@@ -2,21 +2,23 @@ from urllib.parse import urljoin
 
 import requests
 
+from chatrender.conf import settings
+from chatrender.tasks.render import publish_slackchat
 from django.core.management.base import BaseCommand, CommandError
-from slackchat.conf import settings
-from slackchat.tasks.render import publish_slackchat
+from slackchat.models import Channel
 
 
 class Command(BaseCommand):
-    help = 'Closes the specified poll for voting'
+    help = 'Publishes a complete slackchat package, including static files.'
 
     def add_arguments(self, parser):
-        parser.add_argument('channel_id', nargs='+')
+        parser.add_argument('api_id', nargs='+')
 
     def handle(self, *args, **options):
-        for channel_id in options['channel_id']:
+        for api_id in options['api_id']:
+            channel = Channel.objects.get(api_id=api_id)
             channel_uri = urljoin(
-                settings.SLACKCHAT_CHANNEL_ENDPOINT, channel_id)
+                settings.SLACKCHAT_CHANNEL_ENDPOINT, channel.id.hex)
             response = requests.get(channel_uri)
 
             if response.status_code != 200:

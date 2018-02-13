@@ -13,7 +13,6 @@
 2. Add the app to your Django project and configure settings.
 
   ```python
-
   INSTALLED_APPS = [
       # ...
       'rest_framework',
@@ -44,8 +43,7 @@
   CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT = (
       'http://80d94f62.ngrok.io/slackchat/api/channels/'
   )
-
-```
+  ```
 
 ### Developing
 

@@ -16,14 +16,9 @@ def get_bucket():
 
 
 def check_object_exists(obj):
-    session = boto3.session.Session(
-        region_name=settings.AWS_REGION,
-        aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
-        aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY
-    )
-    s3 = session.resource('s3')
+    bucket = get_bucket()
     try:
-        s3.Object(settings.AWS_S3_BUCKET, obj).load()
+        bucket.Object(obj).load()
     except botocore.exceptions.ClientError as e:
         if e.response['Error']['Code'] == "404":
             return False

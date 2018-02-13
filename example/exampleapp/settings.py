@@ -130,9 +130,6 @@ CHATRENDER_AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 CHATRENDER_AWS_S3_BUCKET = 'interactives.politico.com'
 CHATRENDER_AWS_S3_PUBLISH_PATH = '/interactives/slackchats/'
 CHATRENDER_AWS_CUSTOM_ORIGIN = 'https://www.politico.com/interactives/'
-CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT = (
-    'http://localhost:8000/slackchat/api/channels/'
-)
-CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT = (
-    'http://80d94f62.ngrok.io/slackchat/api/channels/'
+CHATRENDER_SLACKCHAT_API_ENDPOINT = (
+    'http://localhost:8000/slackchat/api/'
 )

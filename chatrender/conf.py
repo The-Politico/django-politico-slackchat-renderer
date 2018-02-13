@@ -3,6 +3,7 @@ Use this file to configure pluggable app settings and resolve defaults
 with any overrides set in project settings.
 """
 import re
+from urllib.parse import urljoin
 
 from django.conf import settings as project_settings
 
@@ -17,16 +18,21 @@ Settings.WEBHOOK_VERIFICATION_TOKEN = getattr(
     'slackchat'
 )
 
-Settings.SLACKCHAT_CHANNEL_ENDPOINT = getattr(
+
+Settings.SLACKCHAT_API_ENDPOINT = getattr(
     project_settings,
-    'CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT',
+    'CHATRENDER_SLACKCHAT_API_ENDPOINT',
     None
 )
 
-Settings.DEV_SLACKCHAT_CHANNEL_ENDPOINT = getattr(
-    project_settings,
-    'CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT',
-    None
+Settings.SLACKCHAT_CHANNEL_ENDPOINT = urljoin(
+    Settings.SLACKCHAT_API_ENDPOINT,
+    'channels/'
+)
+
+Settings.SLACKCHAT_CHATTYPE_ENDPOINT = urljoin(
+    Settings.SLACKCHAT_API_ENDPOINT,
+    'chat-types/'
 )
 
 # Strip leading slash, if necessary...
@@ -47,9 +53,6 @@ Settings.AUTH_DECORATOR = getattr(
     'CHATRENDER_AUTH_DECORATOR',
     'django.contrib.auth.decorators.login_required'
 )
-
-Settings.SECRET_KEY = getattr(
-    project_settings, 'CHATRENDER_SECRET_KEY', 'a-bad-secret-key')
 
 Settings.AWS_ACCESS_KEY_ID = getattr(
     project_settings, 'CHATRENDER_AWS_ACCESS_KEY_ID', None)

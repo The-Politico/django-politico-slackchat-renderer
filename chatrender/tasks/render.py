@@ -1,7 +1,6 @@
 import json
 import logging
 import os
-import re
 from urllib.parse import urljoin
 from urllib.request import urlopen
 
@@ -13,16 +12,14 @@ from chatrender.exceptions import (ChannelNotFoundError,
                                    StaticFileNotFoundError,
                                    TemplateNotFoundError)
 from chatrender.utils.aws import check_object_exists, defaults, get_bucket
+from chatrender.utils.path import relativize_path
+from django.conf import settings as project_settings
 from django.contrib.sites.models import Site
 from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.template.exceptions import TemplateDoesNotExist
 from django.template.loader import render_to_string
 
-logger = logging.getLogger('tasks')
-
-
-def relativize_path(path):
-    return re.sub('^/', '', path)
+logger = logging.getLogger(__name__)
 
 
 def render_local_static(static_file):
@@ -32,7 +29,10 @@ def render_local_static(static_file):
         relativize_path(static(static_file))
     )
     try:
-        return urlopen('http://{}'.format(URI)).read().decode('UTF-8')
+        protocol = 'http' if project_settings.DEBUG else 'https'
+        return urlopen(
+            '{0}://{1}'.format(protocol, URI)
+        ).read().decode('UTF-8')
     except Exception:
         raise StaticFileNotFoundError(
             'Could not connect to find staticfile: {}. \
@@ -41,12 +41,45 @@ def render_local_static(static_file):
 
 
 def publish_slackchat(channel, statics=False):
+    """
+    Publishes data and static assets associated with a template to
+    the publish path set in django slackchat.
+    """
     publish_path = relativize_path(channel.get('publish_path'))
-
     chat_type = channel.get('chat_type')
 
     bucket = get_bucket()
 
+    try:
+        rendered_chat = render_to_string(
+            'chatrender/{}/index.html'.format(chat_type),
+            {
+                "channel": channel,
+                "origin": settings.AWS_CUSTOM_ORIGIN,
+                "publish_path": settings.AWS_S3_PUBLISH_PATH,
+                "develop": False,
+            }
+        )
+    except TemplateDoesNotExist:
+        raise TemplateNotFoundError(
+            'Could not find template for chat type: {}'.format(chat_type))
+
+    # index.html
+    key = os.path.join(
+        settings.AWS_S3_PUBLISH_PATH,
+        publish_path,
+        'index.html'
+    )
+
+    bucket.put_object(
+        Key=key,
+        ACL=defaults.ACL,
+        Body=rendered_chat,
+        CacheControl=str('max-age=60'),
+        ContentType='text/html'
+    )
+
+    # chat.json
     key = os.path.join(
         settings.AWS_S3_PUBLISH_PATH,
         publish_path,
@@ -62,35 +95,7 @@ def publish_slackchat(channel, statics=False):
     )
 
     if statics:
-
-        try:
-            rendered_chat = render_to_string(
-                'chatrender/{}/index.html'.format(chat_type),
-                {
-                    "channel": channel,
-                    "origin": settings.AWS_CUSTOM_ORIGIN,
-                    "publish_path": settings.AWS_S3_PUBLISH_PATH,
-                    "develop": False,
-                }
-            )
-        except TemplateDoesNotExist:
-            raise TemplateNotFoundError(
-                'Could not find template for chat type: {}'.format(chat_type))
-
-        key = os.path.join(
-            settings.AWS_S3_PUBLISH_PATH,
-            publish_path,
-            'index.html'
-        )
-
-        bucket.put_object(
-            Key=key,
-            ACL=defaults.ACL,
-            Body=rendered_chat,
-            CacheControl=defaults.CACHE_HEADER,
-            ContentType='text/html'
-        )
-
+        # main-{}.js
         rendered_js = render_local_static(
             'chatrender/js/main-{}.js'.format(chat_type))
 
@@ -108,6 +113,7 @@ def publish_slackchat(channel, statics=False):
             ContentType='application/javascript'
         )
 
+        # main-{}.js.map
         rendered_js = render_local_static(
             'chatrender/js/main-{}.js.map'.format(chat_type))
 
@@ -125,6 +131,7 @@ def publish_slackchat(channel, statics=False):
             ContentType='application/octet-stream'
         )
 
+        # main-{}.css
         rendered_css = render_local_static(
             'chatrender/css/main-{}.css'.format(chat_type))
 
@@ -162,10 +169,10 @@ def render_slackchat(channel_id):
     )
 
     # Don't republish static assets if they exist already at this location.
-    # If you NEED to republish these assets, use the management command.
+    # If you NEED to republish assets, use the management command.
     if not check_object_exists(key):
         publish_slackchat(channel, statics=True)
     else:
         publish_slackchat(channel, statics=False)
 
-    logger.info('Published to AWS')
+    logger.info('Published slckchat to AWS.')
