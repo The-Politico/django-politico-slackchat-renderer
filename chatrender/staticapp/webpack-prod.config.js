@@ -71,9 +71,12 @@ module.exports = {
     }),
     new OptimizeCssAssetsPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
-    new UglifyJSPlugin(),
+    new UglifyJSPlugin({
+      sourceMap: true,
+    }),
     new webpack.ProvidePlugin({
       fetch: 'imports-loader?this=>global!exports-loader?global.fetch!whatwg-fetch',
     }),
   ],
+  devtool: 'source-map',
 };

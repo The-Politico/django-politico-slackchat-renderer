@@ -13,23 +13,39 @@
 2. Add the app to your Django project and configure settings.
 
   ```python
+
   INSTALLED_APPS = [
       # ...
       'rest_framework',
       'chatrender',
   ]
 
-  #########################
-  # chatrender settings
+  def markslack_user_template(user):
+      return '<span class="mention">{}</span>'.format(
+          user.first_name
+      )
 
-  CHATRENDER_SECRET_KEY = ''
-  CHATRENDER_AWS_ACCESS_KEY_ID = ''
-  CHATRENDER_AWS_SECRET_ACCESS_KEY = ''
-  CHATRENDER_AWS_REGION = ''
-  CHATRENDER_AWS_S3_BUCKET = ''
-  CHATRENDER_CLOUDFRONT_ALTERNATE_DOMAIN = ''
-  CHATRENDER_S3_UPLOAD_ROOT = ''
-  ```
+
+  SLACKCHAT_SLACK_VERIFICATION_TOKEN = os.getenv(
+      'SLACK_VERIFICATION_TOKEN', None)
+  SLACKCHAT_SLACK_API_TOKEN = os.getenv('SLACK_API_TOKEN', None)
+  SLACKCHAT_PUBLISH_ROOT = 'https://www.politico.com/interactives/slackchats/'
+  SLACK_MARKSLACK_USER_TEMPLATE = markslack_user_template
+
+
+  CHATRENDER_AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+  CHATRENDER_AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
+  CHATRENDER_AWS_S3_BUCKET = 'interactives.politico.com'
+  CHATRENDER_AWS_S3_PUBLISH_PATH = '/interactives/slackchats/'
+  CHATRENDER_AWS_CUSTOM_ORIGIN = 'https://www.politico.com/interactives/'
+  CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT = (
+      'http://localhost:8000/slackchat/api/channels/'
+  )
+  CHATRENDER_DEV_SLACKCHAT_CHANNEL_ENDPOINT = (
+      'http://80d94f62.ngrok.io/slackchat/api/channels/'
+  )
+
+```
 
 ### Developing
 

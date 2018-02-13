@@ -25,7 +25,6 @@ class Endpoint(APIView):
             channel = data.get('channel')
         except KeyError:
             return Response(status=status.HTTP_400_BAD_REQUEST)
-
         render_slackchat.delay(channel)
 
         return Response(status=status.HTTP_200_OK)

@@ -3,6 +3,7 @@ import logging
 import os
 import re
 from urllib.parse import urljoin
+from urllib.request import urlopen
 
 import requests
 
@@ -30,11 +31,13 @@ def render_local_static(static_file):
         Site.objects.get_current().domain,
         relativize_path(static(static_file))
     )
-    response = requests.get('http://{}'.format(URI))
-    if response.status_code != 200:
+    try:
+        return urlopen('http://{}'.format(URI)).read().decode('UTF-8')
+    except Exception:
         raise StaticFileNotFoundError(
-            'Could not find staticfile: {}'.format(static_file))
-    return response.text
+            'Could not connect to find staticfile: {}. \
+            \nAre you sure you have the right domain configured \
+            in Django sites framework?'.format(static_file))
 
 
 def publish_slackchat(channel, statics=False):
@@ -54,7 +57,7 @@ def publish_slackchat(channel, statics=False):
         Key=key,
         ACL=defaults.ACL,
         Body=json.dumps(channel),
-        CacheControl=str('max-age=10'),
+        CacheControl=str('max-age=5'),
         ContentType='application/json'
     )
 
@@ -105,6 +108,23 @@ def publish_slackchat(channel, statics=False):
             ContentType='application/javascript'
         )
 
+        rendered_js = render_local_static(
+            'chatrender/js/main-{}.js.map'.format(chat_type))
+
+        key = os.path.join(
+            settings.AWS_S3_PUBLISH_PATH,
+            publish_path,
+            'main-{}.js.map'.format(chat_type)
+        )
+
+        bucket.put_object(
+            Key=key,
+            ACL=defaults.ACL,
+            Body=rendered_js,
+            CacheControl=defaults.CACHE_HEADER,
+            ContentType='application/octet-stream'
+        )
+
         rendered_css = render_local_static(
             'chatrender/css/main-{}.css'.format(chat_type))
 
@@ -133,7 +153,6 @@ def render_slackchat(channel_id):
             'Could not find channel at: {}'.format(channel_uri))
 
     channel = response.json()
-
     publish_path = relativize_path(channel.get('publish_path'))
 
     key = os.path.join(
@@ -147,6 +166,6 @@ def render_slackchat(channel_id):
     if not check_object_exists(key):
         publish_slackchat(channel, statics=True)
     else:
-        publish_slackchat(channel)
+        publish_slackchat(channel, statics=False)
 
     logger.info('Published to AWS')

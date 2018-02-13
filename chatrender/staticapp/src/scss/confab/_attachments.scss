@@ -11,6 +11,15 @@
     img{
       width: 100%;
     }
+    @media (max-width: 450px){
+      &.title{
+        width: 100%;
+        float:none;
+      }
+      &.image{
+        display: none;
+      }
+    }
   }
   a, a:hover{
     text-decoration: none;

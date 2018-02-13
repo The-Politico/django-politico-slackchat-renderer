@@ -111,14 +111,24 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
+
+def markslack_user_template(user):
+    return '<span class="mention">{}</span>'.format(
+        user.first_name
+    )
+
+
 SLACKCHAT_SLACK_VERIFICATION_TOKEN = os.getenv(
     'SLACK_VERIFICATION_TOKEN', None)
 SLACKCHAT_SLACK_API_TOKEN = os.getenv('SLACK_API_TOKEN', None)
+SLACKCHAT_PUBLISH_ROOT = 'https://www.politico.com/interactives/slackchats/'
+SLACK_MARKSLACK_USER_TEMPLATE = markslack_user_template
+
 
 CHATRENDER_AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 CHATRENDER_AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-CHATRENDER_AWS_S3_BUCKET = os.getenv('AWS_S3_BUCKET')
-CHATRENDER_AWS_S3_PUBLISH_PATH = '/slackchats/'
+CHATRENDER_AWS_S3_BUCKET = 'interactives.politico.com'
+CHATRENDER_AWS_S3_PUBLISH_PATH = '/interactives/slackchats/'
 CHATRENDER_AWS_CUSTOM_ORIGIN = 'https://www.politico.com/interactives/'
 CHATRENDER_SLACKCHAT_CHANNEL_ENDPOINT = (
     'http://localhost:8000/slackchat/api/channels/'

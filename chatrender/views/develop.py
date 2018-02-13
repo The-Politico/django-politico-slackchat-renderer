@@ -4,9 +4,11 @@ import requests
 
 from chatrender.conf import settings
 from django.conf import settings as project_settings
+from django.contrib.admin.views.decorators import staff_member_required
 from django.shortcuts import render
 
 
+@staff_member_required
 def develop(request, chat_type, channel):
     channel_uri = urljoin(settings.SLACKCHAT_CHANNEL_ENDPOINT, channel)
     if project_settings.DEBUG:
@@ -15,7 +17,7 @@ def develop(request, chat_type, channel):
             channel
         )
     response = requests.get(channel_uri)
-    print(channel_uri)
+
     channel = response.json()
     return render(
         request,

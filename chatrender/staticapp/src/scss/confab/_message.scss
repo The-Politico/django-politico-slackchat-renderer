@@ -27,6 +27,10 @@
       font-size: 18px;
       line-height: 25px;
       margin: 10px 5px;
+      @media (max-width: 400px) {
+        font-size: 16px;
+        line-height: 21px;
+      }
     }
     span.mention{
       font-weight: bold;
