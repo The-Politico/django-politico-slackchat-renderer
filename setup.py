@@ -1,8 +1,12 @@
+import os
+
 from setuptools import find_packages, setup
+
+os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-politico-slackchat-renderer',
-    version='0.0.3',
+    version='0.0.4',
     description='',
     url='https://github.com/The-Politico/django-politico-slackchat-renderer',
     author='POLITICO interactive news',
@@ -26,7 +30,9 @@ setup(
     packages=find_packages(exclude=['docs', 'tests', 'example']),
     include_package_data=True,
 
-    install_requires=[],
+    install_requires=[
+        'requests'
+    ],
 
     extras_require={
         'test': ['pytest'],
