@@ -1,3 +1,4 @@
+import gc
 import json
 import logging
 import os
@@ -176,3 +177,5 @@ def render_slackchat(channel_id):
         publish_slackchat(channel, statics=False)
 
     logger.info('Published slckchat to AWS.')
+    # Garbage collect after run.
+    gc.collect()
