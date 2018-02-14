@@ -6,6 +6,10 @@ from rest_framework.views import APIView
 
 
 class Endpoint(APIView):
+    # Open API
+    authentication_classes = ()
+    permission_classes = ()
+
     def post(self, request, *args, **kwargs):
         data = request.data
 
