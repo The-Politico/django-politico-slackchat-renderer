@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name='django-politico-slackchat-renderer',
-    version='0.0.2',
+    version='0.0.3',
     description='',
     url='https://github.com/The-Politico/django-politico-slackchat-renderer',
     author='POLITICO interactive news',
@@ -24,6 +24,7 @@ setup(
     keywords='',
 
     packages=find_packages(exclude=['docs', 'tests', 'example']),
+    include_package_data=True,
 
     install_requires=[],
 
