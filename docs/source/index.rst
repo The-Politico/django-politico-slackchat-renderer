@@ -9,6 +9,8 @@ Welcome to django-politico-slackchat-renderer's documentation!
 
    Why this? <why>
    Quickstart <quickstart>
+   Workflow <workflow>
+   Developing templates <templates>
 
 
 
