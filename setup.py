@@ -6,7 +6,7 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='django-politico-slackchat-renderer',
-    version='0.0.6',
+    version='0.0.7',
     description='',
     url='https://github.com/The-Politico/django-politico-slackchat-renderer',
     author='POLITICO interactive news',

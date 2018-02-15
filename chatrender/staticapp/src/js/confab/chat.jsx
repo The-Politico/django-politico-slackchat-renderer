@@ -4,6 +4,7 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faBolt, faArrowDown, faArrowUp } from '@fortawesome/fontawesome-free-solid';
 import Sticky from 'react-stickynode';
 import { animateScroll, Element } from 'react-scroll';
+import sortBy from 'lodash/sortBy';
 
 const channelURI = document.getElementsByName('channel-uri')[0].value;
 
@@ -29,7 +30,7 @@ class Chat extends React.Component {
       setTimeout(this.fetchChat, 15000);
     }
 
-    window.twttr.widgets.load(document.getElementById('blog'));
+    if (window.twttr) window.twttr.widgets.load(document.getElementById('blog'));
   }
 
   fetchChat () {
@@ -46,7 +47,7 @@ class Chat extends React.Component {
     const chat = this.state.chat;
     if (!chat.messages) return null;
     const users = chat.users;
-    const messages = chat.messages.map((m, i) => (
+    const messages = sortBy(chat.messages, [d => d.timestamp]).map((m, i) => (
       <Message
         message={m}
         user={users[m.user]}
