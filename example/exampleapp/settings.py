@@ -100,6 +100,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = ''
+
 SITE_ID = 1
 
 #########################
@@ -108,6 +110,7 @@ SITE_ID = 1
 CORS_ORIGIN_ALLOW_ALL = True
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
@@ -127,8 +130,8 @@ SLACK_MARKSLACK_USER_TEMPLATE = markslack_user_template
 
 CHATRENDER_AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
 CHATRENDER_AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-CHATRENDER_AWS_S3_BUCKET = 'interactives.politico.com'
-CHATRENDER_AWS_S3_PUBLISH_PATH = '/interactives/slackchats/'
+CHATRENDER_AWS_S3_BUCKET = 'staging.interactives.politico.com'
+CHATRENDER_AWS_S3_PUBLISH_PATH = ''
 CHATRENDER_AWS_CUSTOM_ORIGIN = 'https://www.politico.com/interactives/'
 CHATRENDER_SLACKCHAT_API_ENDPOINT = (
     'http://localhost:8000/slackchat/api/'

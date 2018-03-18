@@ -8,5 +8,4 @@ register = template.Library()
 
 @register.filter(name="url_join")
 def url_join_filter(base, path):
-    print(base, path)
     return urljoin(base, re.sub(r'^/', '', path))
