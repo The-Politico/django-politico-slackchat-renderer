@@ -13,6 +13,7 @@
       width: calc(100% + 40px);
       margin-left: -20px;
       margin-bottom: 10px;
+      border-radius: 15px;
 
       &.emoji{
         width: 1em;
@@ -36,16 +37,16 @@
         height: 1.5em;
       }
     }
-    span.mention{
-      font-weight: bold;
-      color: $black;
-      background-color: #FFFBCC;
-      padding: 0 4px;
-      display: inline-block;
-    }
-    span.slack-announcement{
+    span.slack-announcement,span.mention{
       font-weight: bold;
       color: $politico-red;
+    }
+    code{
+      font-family: monospace, monospace;
+      font-size: 1em;
+      font-size: 0.98rem;
+      color: #9e0001;
+      background-color: #fff4f4;
     }
     blockquote{
       position: relative;
