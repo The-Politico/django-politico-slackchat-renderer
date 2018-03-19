@@ -2,12 +2,12 @@
   background: #f6f6f6;
   padding: 20px 20px 20px;
   border-radius: 10px;
-  margin: 20px 5px 25px;
+  margin: 20px 5px;
   position: relative;
   .content{
     max-width: 100%;
     margin-bottom: 10px;
-    margin-top: 25px;
+    margin-top: 20px;
 
     img{
       width: calc(100% + 40px);
@@ -30,6 +30,10 @@
       @media (max-width: 400px) {
         font-size: 16px;
         line-height: 21px;
+      }
+      .emoji:only-child{
+        width: 1.5em;
+        height: 1.5em;
       }
     }
     span.mention{

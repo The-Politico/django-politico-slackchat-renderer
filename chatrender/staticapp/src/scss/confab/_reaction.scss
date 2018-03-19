@@ -6,6 +6,9 @@
   padding: 4px 6px 5px;
   border-radius: 10px;
   background-color: #fff;
+  white-space: nowrap;
+  overflow-x: hidden;
+  max-width: calc(100% - 30px);
 
   .reaction{
     font-size: 22px;
@@ -13,10 +16,16 @@
     display: inline-block;
     margin: 0 3px;
     cursor:pointer;
+    span{
+      font-size: 0px;
+    }
+    span img{
+      font-size: 22px;
+    }
   }
 }
 
-.reaction-tooltip{
+div.reaction-tooltip{
   padding: 0 !important;
   background-color: transparent !important;
 
@@ -34,5 +43,8 @@
   }
   &:after{
     border: none !important;
+  }
+  &.place-top{
+    margin-top: -28px;
   }
 }

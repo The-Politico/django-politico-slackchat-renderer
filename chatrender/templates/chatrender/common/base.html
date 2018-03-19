@@ -11,11 +11,14 @@
       integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
       crossorigin="anonymous">
     </script>
-    <script src="https://use.typekit.net/ijp3uro.js"></script>
+    <!--Typekit-->
+    <link rel="stylesheet" href="https://use.typekit.net/ogn0czn.css">
     <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <!-- end -->
     {% block styles %}{% endblock %}
   </head>
   <body>
+    {%block nav%}{%endblock%}
     {% block header %}
       {%include "chatrender/common/parts/header.html"%}
     {% endblock %}

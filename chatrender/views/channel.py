@@ -1,6 +1,7 @@
 import json
 import logging
 import os
+from datetime import datetime
 from urllib.parse import urljoin
 
 import requests
@@ -43,7 +44,7 @@ class Channel(TemplateView):
         context['origin'] = settings.AWS_CUSTOM_ORIGIN
         context['publish_path'] = self.get_publish_path()
         context['production'] = self.request.GET.get('env', 'dev') == 'prod'
-
+        context['now'] = datetime.now()
         return context
 
     def get_channel(self):

@@ -1,0 +1,73 @@
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+
+@import '~politico-style/scss/elections/states/theme/fonts';
+@import '~politico-style/scss/base/theme/colors/base';
+@import '~politico-style/scss/base/theme/fonts';
+@import '~politico-style/scss/base/components/ads';
+
+@import 'footer-nav';
+@import 'sticky-nav';
+
+@import '../common/colors';
+@import '../confab/page';
+@import '../confab/well';
+@import '../confab/message';
+@import '../confab/byline';
+@import '../confab/reaction';
+@import '../confab/attachments';
+
+body{
+  font-size: 16px;
+}
+
+.clearfix{
+  &::after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+}
+
+div{
+  box-sizing: border-box;
+}
+
+section.introduction{
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 20px 10px;
+  margin-bottom: 40px;
+  p{
+    font-size: 18px;
+    line-height: 25px;
+  }
+}
+
+p.chat-brand{
+  margin:20px 0 -10px;
+  font-family: $franklin;
+  color: grey;
+  span{
+
+    color: $politico-red;
+    font-weight: bold;
+    background:#FFFBCC;
+    padding: 0 2px;
+  }
+}
+
+h1{
+  font-size: 2.5rem;
+}
+
+.sticky-header{
+  width: 100%;
+  h2{
+    font-size: 22px;
+    .fa-bullhorn{
+      color: lightgrey;
+      font-size: 18px;
+      margin-left: 3px;
+    }
+  }
+}

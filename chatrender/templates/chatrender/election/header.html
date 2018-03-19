@@ -1,0 +1,22 @@
+{%load tz%}
+<header class="center">
+    <div class="share">
+       <a href="" class="icon icon-facebook" target="_blank"></a>
+       <a href="" class="icon icon-twitter" target="_blank"></a>
+       <a class="icon icon-mail" target="_blank"></a>
+
+    <p class="chat-brand">
+      Live chat
+    </p>
+    <h1>{{channel.title}}</h1>
+    <p class="time">
+        <span class="live">LIVE</span> with
+        {% for a, value in channel.users.items %}
+          <span class="byline">
+            {{value.first_name}} {{value.last_name}}{%if not forloop.last%},{%endif%}
+          </span>
+        {%endfor%}
+          | <span class="timestamp"> <time datetime='{{now|timezone:"America/New_York"|date:"c"}}'>{{ now|timezone:"America/New_York"|date:"N j, Y P" }} EDT</time></span>
+    </p>
+    </div>
+</header>

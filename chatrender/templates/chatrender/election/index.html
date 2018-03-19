@@ -1,0 +1,53 @@
+{% extends 'chatrender/common/base.html' %}
+{%load staticfiles%}
+{%load markdown_tags%}
+{%load tz%}
+
+{% block meta %}
+<title>{{ channel.meta.title }}</title>
+{% endblock %}
+
+{% block styles %}
+{%if production%}
+<link rel="stylesheet" href="./main-election.css">
+{%endif%}
+<script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+{%endblock%}
+
+{%block nav%}
+{%include "chatrender/election/nav.html"%}
+{%endblock%}
+
+{% block header %}
+  {%include "chatrender/common/parts/ads/banner.html"%}
+  {%include "chatrender/election/header.html"%}
+  <section class="introduction">
+    {{channel.introduction|markdown}}
+  </section>
+{% endblock %}
+
+{%block content%}
+<div id="blog"></div>
+{%include "chatrender/common/parts/ads/cube.html"%}
+{%endblock%}
+
+
+{% block footer %}
+{%include "chatrender/election/elex-footer.html"%}
+{%include "chatrender/common/parts/footer.html"%}
+{% endblock %}
+
+{% block scripts %}
+{%if production%}
+<input name="channel-uri" type="hidden" value="./chat.json" />
+<script src="./main-election.js"></script>
+{%else%}
+<input name="channel-uri" type="hidden" value="{{channel_uri}}/" />
+<script src="{% static 'chatrender/js/main-election.js' %}"></script>
+{%endif%}
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{%include "chatrender/common/parts/ads/script.html"%}
+{%include "chatrender/election/meta/telium.html"%}
+{% endblock %}
