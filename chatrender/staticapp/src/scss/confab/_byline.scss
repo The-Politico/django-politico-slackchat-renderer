@@ -21,12 +21,21 @@
       font-weight: bold;
       font-size: 20px;
       display: inline-block;
+
+      @media(max-width: 800px){
+        font-size: 18px;
+      }
     }
     .title{
       font-size: 14px;
       line-height: 14px;
       color: $satan;
       display: inline-block;
+
+      @media(max-width: 800px){
+        font-size: 13px;
+        padding-top:2px;
+      }
     }
   }
   .byline-timestamp{
@@ -36,5 +45,12 @@
     font-size: 14px;
     color: $satan;
     text-align: right;
+    float:right;
+
+    @media(max-width: 800px){
+      font-size: 13px;
+      padding-top:2px;
+
+    }
   }
 }

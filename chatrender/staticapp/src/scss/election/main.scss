@@ -36,10 +36,21 @@ section.introduction{
   max-width: 550px;
   margin: 0 auto;
   padding: 20px 10px;
-  margin-bottom: 40px;
+  margin-bottom: 0px;
+
+  @media(max-width: 800px){
+    margin-bottom: 0;
+    padding-bottom: 5px;
+  }
   p{
-    font-size: 18px;
+    font-size: 19px;
     line-height: 25px;
+    line-height: 1.618;
+
+    &:last-of-type{
+      margin-bottom: 0;
+
+    }
   }
 }
 

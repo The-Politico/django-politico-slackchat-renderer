@@ -3,6 +3,10 @@
   margin: 20px auto;
   font-family: $franklin;
 
+  @media(max-width: 800px){
+    margin-top: 5px;
+  }
+
   .fa-bolt{
     color: orange;
   }
