@@ -1,0 +1,39 @@
+.elex-footer{
+  border-top: dashed 2px #ddd;
+  padding: 10px 20px;
+
+  h4{
+    text-align:center;
+  }
+  @media (max-width: 400px){
+    padding: 10px;
+  }
+  ul{
+    width: calc(100% - 40px);
+    max-width: 800px;
+    margin: 0 auto;
+    list-style-type: none;
+    padding-left: 0;
+    columns: 5;
+    @media (max-width: 750px){
+      columns: 4;
+    }
+    @media (max-width: 575px){
+      columns: 3;
+    }
+    @media (max-width: 360px){
+      columns: 2;
+    }
+    li{
+      line-height:1.5em;
+      padding-left: 10px;
+      font-family: $franklin;
+      font-size: 16px;
+      a{
+        text-decoration: none;
+        color: #666;
+      }
+    }
+
+  }
+}

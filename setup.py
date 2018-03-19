@@ -2,11 +2,13 @@ import os
 
 from setuptools import find_packages, setup
 
+import chatrender
+
 os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
-    name='django-politico-slackchat-renderer',
-    version='0.0.7',
+    name=chatrender.__package__,
+    version=chatrender.__version__,
     description='',
     url='https://github.com/The-Politico/django-politico-slackchat-renderer',
     author='POLITICO interactive news',

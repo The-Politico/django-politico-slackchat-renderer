@@ -8,19 +8,19 @@
 {%endblock%}
 
 {% block styles %}
-{%if not develop%}
+{%if production%}
 <link rel="stylesheet" href="./main-confab.css">
 {%endif%}
 <script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 {% endblock %}
 
 {% block scripts %}
-{%if develop%}
-<input name="channel-uri" type="hidden" value="{{channel_uri}}/" />
-<script src="{% static 'chatrender/js/main-confab.js' %}"></script>
-{%else%}
+{%if production%}
 <input name="channel-uri" type="hidden" value="./chat.json" />
 <script src="./main-confab.js"></script>
+{%else%}
+<input name="channel-uri" type="hidden" value="{{channel_uri}}/" />
+<script src="{% static 'chatrender/js/main-confab.js' %}"></script>
 {%endif%}
 {%include "chatrender/common/parts/ads/script.html"%}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>

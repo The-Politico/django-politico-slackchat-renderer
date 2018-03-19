@@ -2,7 +2,6 @@
 Use this file to configure pluggable app settings and resolve defaults
 with any overrides set in project settings.
 """
-import re
 from urllib.parse import urljoin
 
 from django.conf import settings as project_settings
@@ -36,11 +35,11 @@ Settings.SLACKCHAT_CHATTYPE_ENDPOINT = urljoin(
 )
 
 # Strip leading slash, if necessary...
-Settings.AWS_S3_PUBLISH_PATH = re.sub(r'^/', '', getattr(
+Settings.AWS_S3_PUBLISH_PATH = getattr(
     project_settings,
     'CHATRENDER_AWS_S3_PUBLISH_PATH',
-    'slackchats/'
-))
+    ''
+).lstrip('/')
 
 Settings.AWS_CUSTOM_ORIGIN = getattr(
     project_settings,
