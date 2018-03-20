@@ -28,7 +28,7 @@ def check_object_exists(obj):
 
 
 class Defaults(object):
-    CACHE_HEADER = str('max-age=600')
+    CACHE_HEADER = str('max-age=300')
     ACL = 'public-read'
 
 

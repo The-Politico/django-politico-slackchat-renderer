@@ -5,6 +5,8 @@
 
 {% block meta %}
 <title>{{ channel.meta.title }}</title>
+{%include "chatrender/election/meta/icons.html"%}
+{%include "chatrender/election/meta/social.html"%}
 {% endblock %}
 
 {% block styles %}
@@ -21,7 +23,7 @@
 {% block header %}
   {%include "chatrender/common/parts/ads/banner.html"%}
   {%include "chatrender/election/header.html"%}
-  <section class="introduction">
+  <section id="introduction" class="introduction">
     {{channel.introduction|markdown}}
   </section>
 {% endblock %}
@@ -48,6 +50,6 @@
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-{%include "chatrender/common/parts/ads/script.html"%}
 {%include "chatrender/election/meta/telium.html"%}
+{%include "chatrender/common/parts/ads/script.html"%}
 {% endblock %}

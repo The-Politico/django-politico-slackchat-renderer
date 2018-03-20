@@ -104,6 +104,43 @@
       margin-top: -6px;
     }
   }
+
+
+  @media(min-width: 600px) {
+    .statenav-button {
+      vertical-align: middle;
+    }
+
+    .title {
+      div {
+        display: inline-block;
+      }
+
+      .logo {
+        margin-right: 15px;
+
+        .icon-politico {
+          font-size: 15px;
+        }
+        .elex-tag {
+          font-size: 18px;
+          position: relative;
+          top: -1px;
+        }
+      }
+
+      .page-title {
+        border-left: 1px solid $gray;
+        padding-left: 15px;
+
+        h2 {
+          font-size: 22px;
+          position: relative;
+          top: 3px;
+        }
+      }
+    }
+  }
 }
 
 .statenav-top{

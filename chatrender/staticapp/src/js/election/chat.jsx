@@ -4,7 +4,8 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/fontawesome-free-solid';
 import { animateScroll, Element } from 'react-scroll';
 import sortBy from 'lodash/sortBy';
-import StickyNav from './stickyNav';
+import StickyNav from './StickyNav';
+import StaticRefer from './StaticRefer';
 
 const channelURI = document.getElementsByName('channel-uri')[0].value;
 
@@ -59,6 +60,7 @@ class Chat extends React.Component {
     return (
       <div>
         <StickyNav />
+        <StaticRefer />
         <Element name='chatTop' />
         <div className='chat-well'>
           {messages}

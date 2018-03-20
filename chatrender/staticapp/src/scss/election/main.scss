@@ -82,3 +82,32 @@ h1{
     }
   }
 }
+
+
+.static-refer {
+  position: fixed;
+  bottom: 40px;
+  right: 20px;
+  background-color: white;
+  font-family: $franklin;
+  border: 1px solid $gray;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition: all .2s;
+  z-index: 100;
+
+  &:hover {
+    background-color: #D3D3D3
+  }
+
+  p {
+    color: black;
+    margin: 0;
+    img{
+      height: 20px;
+      margin-left: 15px;
+      vertical-align: text-bottom;
+    }
+  }
+}
