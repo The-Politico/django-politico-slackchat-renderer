@@ -46,6 +46,7 @@ class Channel(TemplateView):
         context['origin'] = settings.AWS_CUSTOM_ORIGIN
         context['publish_path'] = self.get_publish_path()
         context['production'] = self.request.GET.get('env', 'dev') == 'prod'
+        context['hash'] = self.hash
         context['now'] = datetime.now()
         return context
 
@@ -80,10 +81,11 @@ class Channel(TemplateView):
         """Publishes JS bundle."""
         static_file = 'main-{}.js'.format(self.chat_type)
         static_file_path = 'chatrender/js/{}'.format(static_file)
+        hashed_path = 'main-{}-{}.js'.format(self.chat_type, self.hash)
         js_string = self.render_static_string(static_file_path)
         key = os.path.join(
             self.get_publish_path(),
-            static_file
+            hashed_path
         )
         logger.info('>>> Publish JS to:', key)
         self.bucket.put_object(
@@ -99,7 +101,7 @@ class Channel(TemplateView):
         )
         key = os.path.join(
             self.get_publish_path(),
-            '{}.map'.format(static_file)
+            '{}.map'.format(hashed_path)
         )
         logger.info('>>> Publish JS map to:', key)
         self.bucket.put_object(
@@ -114,10 +116,11 @@ class Channel(TemplateView):
         """Publishes CSS."""
         static_file = 'main-{}.css'.format(self.chat_type)
         static_file_path = 'chatrender/css/{}'.format(static_file)
+        hashed_path = 'main-{}-{}.css'.format(self.chat_type, self.hash)
         css_string = self.render_static_string(static_file_path)
         key = os.path.join(
             self.get_publish_path(),
-            static_file
+            hashed_path
         )
         logger.info('>>> Publish CSS to:', key)
         self.bucket.put_object(
@@ -139,8 +142,10 @@ class Channel(TemplateView):
 
     def publish_template(self, **kwargs):
         request = self.get_request()
-        template_string = self.__class__.as_view()(
-            request, **kwargs).rendered_content
+        view = self.__class__.as_view()(
+            request, **kwargs)
+        self.hash = view.context_data.get('hash')
+        template_string = view.rendered_content
         key = os.path.join(
             self.get_publish_path(),
             'index.html'

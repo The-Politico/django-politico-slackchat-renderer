@@ -11,7 +11,7 @@
 
 {% block styles %}
 {%if production%}
-<link rel="stylesheet" href="./main-election.css">
+<link rel="stylesheet" href="./main-election-{{hash}}.css">
 {%endif%}
 <script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 {%endblock%}
@@ -26,9 +26,9 @@
   <section id="introduction" class="introduction">
     {{channel.introduction|markdown}}
   </section>
-  <!-- <section class="ask-politico-prompt">
+  <section class="ask-politico-prompt">
     <button id="ask-politico">#AskPOLITICO</button>
-  </section> -->
+  </section>
 {% endblock %}
 
 {%block content%}
@@ -45,7 +45,7 @@
 {% block scripts %}
 {%if production%}
 <input name="channel-uri" type="hidden" value="./chat.json" />
-<script src="./main-election.js"></script>
+<script src="./main-election-{{hash}}.js"></script>
 {%else%}
 <input name="channel-uri" type="hidden" value="{{channel_uri}}/" />
 <script src="{% static 'chatrender/js/main-election.js' %}"></script>
