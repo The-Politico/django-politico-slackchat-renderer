@@ -2,7 +2,7 @@ import React from 'react';
 
 const StaticRefer = () => (
   <a
-    href='https://www.politico.com/election-results/'
+    href='https://www.politico.com/election-results/2018/illinois/'
   >
     <div className='static-refer'>
       <p>
