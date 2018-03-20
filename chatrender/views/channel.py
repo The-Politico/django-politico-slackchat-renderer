@@ -1,17 +1,18 @@
 import json
 import logging
 import os
+import uuid
 from datetime import datetime
 from urllib.parse import urljoin
 
 import requests
+from django.conf import settings as project_settings
+from django.test.client import RequestFactory
+from django.views.generic.base import TemplateView
 
 from chatrender.conf import settings
 from chatrender.exceptions import ChannelNotFoundError, StaticFileNotFoundError
 from chatrender.utils.aws import check_object_exists, defaults, get_bucket
-from django.conf import settings as project_settings
-from django.test.client import RequestFactory
-from django.views.generic.base import TemplateView
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +21,7 @@ class Channel(TemplateView):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.bucket = get_bucket()
+        self.hash = uuid.uuid4().hex[:10]
 
     def get_template_names(self):
         template = 'chatrender/{}/index.html'.format(self.chat_type)
