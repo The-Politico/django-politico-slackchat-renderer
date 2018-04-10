@@ -24,9 +24,11 @@
 {% block header %}
   {%include "chatrender/common/parts/ads/banner.html"%}
   {%include "chatrender/video/header.html"%}
-  <section id="introduction" class="introduction">
-    {{channel.introduction|markdown}}
-  </section>
+  <article class="container">
+    <section id="introduction" class="introduction">
+      {{channel.introduction|markdown}}
+    </section>
+  </article>
   <section class="ask-politico-prompt">
     <button id="ask-politico">#AskPOLITICO</button>
   </section>

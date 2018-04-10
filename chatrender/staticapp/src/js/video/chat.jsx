@@ -2,7 +2,7 @@ import React from 'react';
 import Message from './message';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faArrowUp } from '@fortawesome/fontawesome-free-solid';
-import { animateScroll, Element } from 'react-scroll';
+import { scroller, Element } from 'react-scroll';
 import sortBy from 'lodash/sortBy';
 import Video from './video';
 import Sticky from 'react-stickynode';
@@ -80,7 +80,11 @@ class Chat extends React.Component {
             </div>
             <button
               onClick={() => {
-                animateScroll.scrollToTop();
+                scroller.scrollTo('chatTop', {
+                  offset: -150,
+                  smooth: true,
+                  duration: 250,
+                });
               }}
             >
               <FontAwesomeIcon icon={faArrowUp} />

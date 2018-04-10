@@ -6,13 +6,9 @@
   .video-content{
     max-width: 550px;
     margin: 0 auto;
-    padding-left: 15%;
-    @media screen and (max-width: 450px) {
-      padding-left: 5%;
-    }
 
     .video-box{
-      width: calc(100% - 60px);
+      width: calc(100% - 70px);
       @media screen and (max-width: 450px) {
         width: calc(100% - 80px);
       }
@@ -22,29 +18,41 @@
         float:left;
         width: 50px;
         margin-right: 20px;
+        margin-left: 10px;
         padding-top: 30px;
+        @media screen and (max-width: 350px) {
+          display: none;
+        }
         h6{
           font-size: 20px;
-          line-height: 20px;
+          line-height: 26px;
+          display: none;
+          @media screen and (min-width: 350px) {
+            display: inline;
+          }
         }
       }
       .right{
-        width: calc(100% - 70px);
+        width: calc(100% - 90px);
+        padding-top: 10px;
+        padding-bottom: 5px;
         float: left;
         text-align: center;
+        @media screen and (max-width: 450px) {
+          text-align: left;
+          margin-left: 10px;
+        }
       }
     }
     .button-box{
-      width:60px;
-      float:left;
-      border-left: 1px solid #999;
+      width:70px;
+      float: right;
+      border-left: 1px solid #bbb;
       padding-left: 20px;
       padding-top: 10px;
-      height: 85px;
+      height: 95px;
       margin-top: 10px;
-      @media screen and (max-width: 450px) {
-        width: 80px;
-      }
+
       h6{
         font-weight: bold;
         margin-bottom: 5px;

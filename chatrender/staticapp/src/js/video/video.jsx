@@ -1,9 +1,7 @@
 import React from 'react';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/fontawesome-free-solid';
-import Scroll from 'react-scroll';
-
-const scroll = Scroll.scroller;
+import { scroller } from 'react-scroll';
 
 const Video = () => (
   <div
@@ -22,7 +20,7 @@ const Video = () => (
           <iframe
             width='170'
             height='100'
-            src='https://www.youtube.com/embed/Tch4v0L0GHA?rel=0&amp;showinfo=0&amp;controls=0'
+            src='https://www.youtube.com/embed/BylLTX05jSY?rel=0&amp;showinfo=0&amp;controls=0'
             frameBorder='0'
             allow='autoplay; encrypted-media'
             playsinline='1'
@@ -39,7 +37,7 @@ const Video = () => (
         <div className='bottom'>
           <button
             onClick={() => {
-              scroll.scrollTo('chatBottom', {
+              scroller.scrollTo('chatBottom', {
                 offset: -350,
                 smooth: true,
                 duration: 250,
