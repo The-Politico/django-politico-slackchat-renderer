@@ -49,7 +49,7 @@
     "node-sass": "latest",
     "open": "latest",
     "optimize-css-assets-webpack-plugin": "latest",
-    "politico-style": "https://github.com/The-Politico/politico-style/",
+    "politico-style": "0.1.0",
     "postcss-loader": "latest",
     "prop-types": "^15.6.1",
     "react": "^16.2.0",

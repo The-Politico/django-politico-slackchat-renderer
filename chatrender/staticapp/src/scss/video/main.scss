@@ -1,0 +1,27 @@
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+
+@import '~politico-style/scss/elections/states/theme/fonts';
+@import '~politico-style/scss/base/theme/colors/base';
+@import '~politico-style/scss/base/theme/fonts';
+@import '~politico-style/scss/base/components/ads';
+
+
+@import '../common/colors';
+@import '../confab/page';
+@import '../confab/well';
+@import '../confab/message';
+@import '../confab/byline';
+@import '../confab/reaction';
+@import '../confab/attachments';
+
+@import './ask';
+@import './video';
+
+.sticky-inner-wrapper{
+  z-index: 2;
+}
+
+.header-left svg{
+  width: 25px;
+  height: 25px;
+}

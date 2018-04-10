@@ -1197,6 +1197,10 @@ bootstrap-sass@^3.3.7:
   version "3.3.7"
   resolved "https://registry.yarnpkg.com/bootstrap-sass/-/bootstrap-sass-3.3.7.tgz#6596c7ab40f6637393323ab0bc80d064fc630498"
 
+bootstrap@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"
+
 brace-expansion@^1.0.0, brace-expansion@^1.1.7:
   version "1.1.8"
   resolved "https://registry.yarnpkg.com/brace-expansion/-/brace-expansion-1.1.8.tgz#c07b211c7c952ec1f8efd51a77ef0d1d3990a292"
@@ -4865,10 +4869,11 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-"politico-style@https://github.com/The-Politico/politico-style/":
-  version "0.0.3"
-  resolved "https://github.com/The-Politico/politico-style/#3ee0890cac6e0962ba8162351f3b3cde3ff711c1"
+politico-style@0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/politico-style/-/politico-style-0.1.0.tgz#9886a0b8dce7a622f71a378f52def028142bc328"
   dependencies:
+    bootstrap "^4.0.0"
     bootstrap-sass "^3.3.7"
     open "^0.0.5"
 

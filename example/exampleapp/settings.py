@@ -22,7 +22,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'corsheaders',
     'rest_framework',
-    'rest_framework_swagger',
     'slackchat',
     'chatrender',
 ]
