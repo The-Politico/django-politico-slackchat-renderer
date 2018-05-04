@@ -1,3 +1,0 @@
-include LICENSE
-recursive-include chatrender/static *
-recursive-include chatrender/templates *

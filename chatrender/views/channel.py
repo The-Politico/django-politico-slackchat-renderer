@@ -168,7 +168,9 @@ class Channel(TemplateView):
                 InvalidationBatch={
                     'Paths': {
                         'Quantity': 1,
-                        'Items': [key]
+                        'Items': [
+                            '/{}'.format(key)
+                        ]
                     },
                     'CallerReference': '{}'.format(datetime.now())
                 }
