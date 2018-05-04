@@ -1,0 +1,60 @@
+{% extends 'chatrender/common/base.html' %}
+{%load staticfiles%}
+{%load markdown_tags%}
+{%load tz%}
+
+{% block meta %}
+<title>{{ channel.meta.title }}</title>
+{%include "chatrender/video/meta/icons.html"%}
+{%include "chatrender/video/meta/social.html"%}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="https://www.politico.com/interactives/cdn/fonts/battletoads/icons/politico-battletoads-icons.min.css">
+{%if production%}
+<link rel="stylesheet" href="./main-video-{{hash}}.css">
+{%endif%}
+<script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+{%endblock%}
+
+{%block nav%}
+{%include "chatrender/video/nav.html"%}
+{%endblock%}
+
+{% block header %}
+  {%include "chatrender/common/parts/ads/banner.html"%}
+  {%include "chatrender/video/header.html"%}
+  <article class="container">
+    <section id="introduction" class="introduction">
+      {{channel.introduction|markdown}}
+    </section>
+  </article>
+  <section class="ask-politico-prompt">
+    <button id="ask-politico">#AskPOLITICO</button>
+  </section>
+{% endblock %}
+
+{%block content%}
+<div id="blog"></div>
+{% include "chatrender/common/parts/ads/cube.html" %}
+{%endblock%}
+
+
+{% block footer %}
+{%include "chatrender/common/parts/footer.html"%}
+{% endblock %}
+
+{% block scripts %}
+{%if production%}
+<input name="channel-uri" type="hidden" value="./chat.json" />
+<script src="./main-video-{{hash}}.js"></script>
+{%else%}
+<input name="channel-uri" type="hidden" value="{{channel_uri}}/" />
+<script src="{% static 'chatrender/js/main-video.js' %}"></script>
+{%endif%}
+
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+{% include "chatrender/video/meta/telium.html" %}
+{% include "chatrender/common/parts/ads/script.html" %}
+{% endblock %}

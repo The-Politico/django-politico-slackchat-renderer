@@ -1,0 +1,31 @@
+{% load meta_tags %}
+<title>{{channel.meta.title}}</title>
+
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="POLITICO">
+<meta name="host" content="www.politico.com">
+<meta property="og:fb_appid" content="114037015331397" />
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content="@politico" />
+<!-- Author -->
+<meta property="twitter:creator" content="POLITICO" />
+<meta property="article:author" content="https://www.facebook.com/politico" />
+<!-- Site URL -->
+<meta property="og:url" content="{{origin|url_join:publish_path}}" />
+<link rel="canonical" href="{{origin|url_join:publish_path}}" />
+<!-- Project title -->
+<meta property="twitter:title" content="{{channel.meta.title}}" />
+<meta property="og:title" content="{{channel.meta.title}}" />
+<!-- Project description -->
+<meta property="twitter:description" content="{{channel.meta.description}}" />
+<meta property="og:description" content="{{channel.meta.description}}" />
+<meta name="description" content="{{channel.meta.description}}" />
+<!-- Keywords -->
+<meta property="og:keywords" content="{{channel.meta.keywords}}" />
+<!-- Share image -->
+<meta property="og:image" content="{{origin|url_join:publish_path}}share.jpg" />
+<meta property="twitter:image" content="{{origin|url_join:publish_path}}share.jpg" />
+<meta property="twitter:image:alt" content="POLITICO @here logo" />
+<meta property="og:image:type" content="image/jpeg" />
+<meta property="og:image:width" content="600" />
+<meta property="og:image:height" content="300" />

@@ -1,0 +1,25 @@
+{%load staticfiles%}
+{%load date_tags%}
+<header class="center">
+    <div class="share">
+       <a href="" class="icon icon-facebook" target="_blank"></a>
+       <a href="" class="icon icon-twitter" target="_blank"></a>
+    </div>
+    <p class="chat-logo">
+      <span>@here</span>
+    </p>
+    <h1>
+      {{channel.title}}
+    </h1>
+    <div class="info">
+        <p>
+            With
+            {% for a, value in channel.users.items %}
+              <span class="byline">
+                <a>{{value.first_name}} {{value.last_name}}{%if not forloop.last%},{%endif%}</a>
+              </span>
+            {%endfor%}
+              | <span class="timestamp"> <time itemprop="datePublished" datetime="{{channel.publish_time|timestamp|date:'Y-m-d H:m:s'}}">{{channel.publish_time|timestamp|date:"m/d/y h:m a"}}</time></span>
+        </p>
+    </div>
+</header>

@@ -1,0 +1,26 @@
+*{font-family: monospace;}
+body{margin:0; padding:0;}
+header{
+  width: 100%;
+  font-size: 14px;
+  color: #9e0000;
+  border-bottom: 1px solid lightgrey;
+  padding: 10px 20px;
+}
+content{
+  padding: 10px 20px 20px;
+  display: block;
+}
+nav ul, nav li{
+  display: inline-block;
+}
+nav ul{
+  margin:0;
+  padding: 0;
+}
+nav li:after{
+  content: "/"
+}
+nav li:last-child:after{
+  content: ""
+}

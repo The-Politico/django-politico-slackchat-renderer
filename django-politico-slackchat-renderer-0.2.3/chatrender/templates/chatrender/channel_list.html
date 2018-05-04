@@ -1,0 +1,31 @@
+{%load staticfiles%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Slackchat Channels</title>
+    <link rel="stylesheet" type="text/css" href="https://www.politico.com/interactives/cdn/fonts/base-icons/politico-base-icons.min.css">
+    <link rel="stylesheet" href="{%static 'chatrender/css/internal.css'%}">
+  </head>
+  <body>
+    <header>
+      <b class="icon icon-politico"></b>
+    </header>
+    <content>
+      <nav>
+        <ul>
+          <li><a href="{%url 'chatrender_home'%}">Home</a></li>
+          <li><a>{{chat_type}}</a></li>
+        </ul>
+      </nav>
+      <h1>Slackchat Channels</h1>
+      <ul>
+        {% for channel in channels%}
+        <li>
+          <a href="{%url 'chatrender_channel' chat_type channel.id %}">slackchat-{{channel.id|slice:":11"|cut:"-"}}</a>
+        </li>
+        {%endfor%}
+      </ul>
+    </content>
+  </body>
+</html>

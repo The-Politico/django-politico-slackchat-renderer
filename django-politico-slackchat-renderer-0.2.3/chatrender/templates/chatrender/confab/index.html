@@ -1,0 +1,40 @@
+{%extends "chatrender/common/base.html"%}
+{%load staticfiles%}
+{%load markdown_tags%}
+
+{%block meta%}
+{%include "chatrender/confab/meta/social.html"%}
+{%include "chatrender/confab/meta/icons.html"%}
+{%endblock%}
+
+{% block styles %}
+{%if production%}
+<link rel="stylesheet" href="./main-confab.css">
+{%endif%}
+<script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+{% endblock %}
+
+{% block scripts %}
+{%if production%}
+<input name="channel-uri" type="hidden" value="./chat.json" />
+<script src="./main-confab.js"></script>
+{%else%}
+<input name="channel-uri" type="hidden" value="{{channel_uri}}/" />
+<script src="{% static 'chatrender/js/main-confab.js' %}"></script>
+{%endif%}
+{%include "chatrender/common/parts/ads/script.html"%}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+{% endblock %}
+
+{%block content%}
+{%include "chatrender/common/parts/ads/banner.html"%}
+{%include "chatrender/confab/header.html"%}
+<div class="top-matter">
+  {{channel.introduction|markdown}}
+</div>
+
+<div id="blog"></div>
+
+{%include "chatrender/common/parts/ads/cube.html"%}
+
+{%endblock%}
