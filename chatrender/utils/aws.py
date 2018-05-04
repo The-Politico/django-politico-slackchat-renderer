@@ -15,6 +15,17 @@ def get_bucket():
     return s3.Bucket(settings.AWS_S3_BUCKET)
 
 
+def get_cloudfront_client():
+    if settings.AWS_CLOUDFRONT_DISTRIBUTION:
+        return boto3.client(
+            'cloudfront',
+            aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+            aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY
+        )
+    else:
+        return None
+
+
 def check_object_exists(obj):
     bucket = get_bucket()
     try:

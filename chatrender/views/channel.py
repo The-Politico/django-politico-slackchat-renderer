@@ -9,7 +9,8 @@ import requests
 
 from chatrender.conf import settings
 from chatrender.exceptions import ChannelNotFoundError, StaticFileNotFoundError
-from chatrender.utils.aws import check_object_exists, defaults, get_bucket
+from chatrender.utils.aws import (check_object_exists, defaults, get_bucket,
+                                  get_cloudfront_client)
 from django.conf import settings as project_settings
 from django.test.client import RequestFactory
 from django.views.generic.base import TemplateView
@@ -158,6 +159,20 @@ class Channel(TemplateView):
             CacheControl=defaults.CACHE_HEADER,
             ContentType='text/html'
         )
+
+        cloudfront = get_cloudfront_client()
+        if cloudfront:
+            logger.info('>>> Invalidate template:', key)
+            cloudfront.create_invalidation(
+                DistributionId=settings.AWS_CLOUDFRONT_DISTRIBUTION,
+                InvalidationBatch={
+                    'Paths': {
+                        'Quantity': 1,
+                        'Items': [key]
+                    },
+                    'CallerReference': '{}'.format(datetime.now())
+                }
+            )
 
     def publish_serialized_chat(self):
         key = os.path.join(

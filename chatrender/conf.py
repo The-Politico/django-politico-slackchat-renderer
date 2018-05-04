@@ -65,5 +65,8 @@ Settings.AWS_REGION = getattr(
 Settings.AWS_S3_BUCKET = getattr(
     project_settings, 'CHATRENDER_AWS_S3_BUCKET', None)
 
+Settings.AWS_CLOUDFRONT_DISTRIBUTION = getattr(
+    project_settings, 'CHATRENDER_AWS_CLOUDFRONT_DISTRIBUTION', None)
+
 
 settings = Settings
