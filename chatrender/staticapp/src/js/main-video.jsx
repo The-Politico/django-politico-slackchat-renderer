@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import './common/share';
 
 import 'politico-style/scss/base/main.scss';
-import '../scss/video/main.scss';
+// import '../scss/video/main.scss';
 
 import Chat from './video/chat.jsx';
 

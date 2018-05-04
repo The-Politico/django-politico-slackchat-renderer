@@ -4869,9 +4869,9 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/pluralize/-/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-politico-style@0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/politico-style/-/politico-style-0.1.0.tgz#9886a0b8dce7a622f71a378f52def028142bc328"
+politico-style@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/politico-style/-/politico-style-1.0.1.tgz#345c68e6ba1af5bf237505fb93f94dca7ed61988"
   dependencies:
     bootstrap "^4.0.0"
     bootstrap-sass "^3.3.7"

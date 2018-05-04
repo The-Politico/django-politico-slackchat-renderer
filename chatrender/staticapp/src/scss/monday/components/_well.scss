@@ -1,0 +1,96 @@
+.chat-well{
+  max-width: 550px;
+  margin: 20px auto;
+  font-family: $din;
+
+  @media(max-width: 800px){
+    margin-top: 5px;
+  }
+
+  .fa-bolt{
+    color: orange;
+  }
+  .fa-comment-alt{
+    color: $politico-red;
+    font-size: 16px;
+  }
+  .header{
+    background-color: white;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 14px;
+    position: relative;
+
+    b{
+      font-size: 12px;
+      color: $politico-red;
+      margin-right: 10px;
+    }
+
+  }
+  button{
+    position:absolute;
+    right: 10px;
+    top: 11px;
+    background-color: $politico-red;
+    color: #fff;
+    border: 0;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 18px;
+    &:focus{
+      outline: none;
+    }
+  }
+  .sticky-outer-wrapper.active .header{
+    box-shadow: 0 3px 2px -2px rgba(0,0,0,0.12);
+  }
+  .bottom-bumper{
+    max-width: 550px;
+    margin: -10px auto 10px;
+    position: relative;
+    font-size: 14px;
+
+    div#loader.live {
+    	position:relative;
+    	text-align:center;
+    	width:65px;
+    	height:40px;
+      margin-left: 5px;
+    	display: inline-block;
+      padding: 2px;
+      border-radius: 10px;
+      background: #f6f6f6;
+    	.dot {
+    		display:inline-block;
+    		width:10px;
+    		height:10px;
+    		border-radius:50%;
+    		margin:20px 2px 0;
+    		background:lightgrey;
+    		animation: wave 2s linear infinite;
+
+    		&:nth-child(2) {
+    			animation-delay: .2s;
+    		}
+
+    		&:nth-child(3) {
+    			animation-delay: .4s;
+    		}
+    	}
+    }
+  }
+}
+
+@keyframes wave {
+  0%, 30%, 60% {
+    transform: initial;
+    background: lightgrey;
+  }
+
+  15% {
+    transform: translateY(-15px);
+    background: darkgrey;
+  }
+}

@@ -10,6 +10,9 @@ module.exports = () => {
   exec(`echo $PWD`, {
     cwd: './../../example/',
   });
+  if (!noPython) exec(`pipenv run python manage.py migrate`, {
+    cwd: './../../example/',
+  });
   if (!noPython) exec(`pipenv run python manage.py runserver ${proxy}`, {
     cwd: './../../example/',
   });

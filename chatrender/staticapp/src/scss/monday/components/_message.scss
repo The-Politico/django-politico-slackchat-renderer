@@ -1,0 +1,105 @@
+.message{
+  background: #f6f6f6;
+  padding: 20px 20px 20px;
+  border-radius: 10px;
+  margin: 20px 5px 25px;
+  position: relative;
+
+  @media(max-width: 800px){
+    padding: 18px 12px 18px
+  }
+  .content{
+    max-width: 100%;
+    margin-bottom: 10px;
+    margin-top: 20px;
+
+    img{
+      width: calc(100% + 40px);
+      margin-left: -20px;
+      margin-bottom: 10px;
+      border-radius: 15px;
+
+      &.emoji{
+        width: 1em;
+        height: 1em;
+        margin: 0px 0.05em 0px 0.1em;
+        vertical-align: -0.1em;
+        border-radius: 0;
+      }
+    }
+
+    p{
+      font-family: $din;
+      font-size: 18px;
+      line-height: 25px;
+      margin: 10px 5px;
+      overflow-wrap: break-word;
+      @media (max-width: 400px) {
+        font-size: 16px;
+        line-height: 21px;
+      }
+      .emoji:only-child{
+        width: 1.5em;
+        height: 1.5em;
+      }
+    }
+    span.slack-announcement,span.mention{
+      font-weight: bold;
+      color: $politico-red;
+    }
+    code{
+      font-family: monospace, monospace;
+      font-size: 1em;
+      font-size: 0.98rem;
+      color: #9e0001;
+      background-color: #fff4f4;
+    }
+    blockquote{
+      position: relative;
+      padding-left: 35px;
+      border: 0;
+      &:before {
+        font-family: "Times New Roman", serif;
+        color: #bbb;
+        content: "“";
+        font-size: 60px;
+        font-weight: bold;
+        line-height: 0.1em;
+        position: absolute;
+        top: 18px;
+        left: 2px;
+      }
+    }
+  }
+}
+
+
+
+.message.question{
+  border-bottom: solid #bf0001 11px;
+  padding-top: 30px;
+  div.ask{
+    position:relative;
+    font-family: $din;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 34px;
+    color: #bf0001;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    button{
+      background: none;
+      color: $politico-medium-gray;
+      border: 1px solid $politico-medium-gray;
+      position: initial;
+      float: right;
+      cursor: pointer;
+      padding: 7px 10px 5px;
+      border-radius: 5px;
+      font-weight: 400;
+    }
+  }
+  .reactions-drawer{
+    bottom: -25px;
+  }
+}

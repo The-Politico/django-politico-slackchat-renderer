@@ -1,0 +1,26 @@
+@import '~politico-style/scss/base/theme';
+
+@import './theme/colors';
+
+@import './components/ask';
+@import './components/attachments';
+@import './components/byline';
+@import './components/header';
+@import './components/message';
+@import './components/reaction';
+@import './components/stickyHeader';
+@import './components/well';
+
+
+.sticky-inner-wrapper{
+  z-index: 2;
+}
+
+.header-left svg{
+  width: 25px;
+  height: 25px;
+}
+
+article.container{
+  margin-bottom: 0;
+}

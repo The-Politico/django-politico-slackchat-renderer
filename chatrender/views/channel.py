@@ -6,13 +6,13 @@ from datetime import datetime
 from urllib.parse import urljoin
 
 import requests
-from django.conf import settings as project_settings
-from django.test.client import RequestFactory
-from django.views.generic.base import TemplateView
 
 from chatrender.conf import settings
 from chatrender.exceptions import ChannelNotFoundError, StaticFileNotFoundError
 from chatrender.utils.aws import check_object_exists, defaults, get_bucket
+from django.conf import settings as project_settings
+from django.test.client import RequestFactory
+from django.views.generic.base import TemplateView
 
 logger = logging.getLogger(__name__)
 

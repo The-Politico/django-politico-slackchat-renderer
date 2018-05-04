@@ -1,0 +1,15 @@
+header{
+  .bt-icon--circle-solid{
+    color: $politico-red;
+    margin-right: 2px;
+    font-size: 11px;
+    vertical-align: 1px;
+    animation: blink 2s steps(8, start) infinite;
+  }
+}
+
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}

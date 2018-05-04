@@ -1,0 +1,102 @@
+.attachment.link{
+  border-top: 1px solid $politico-line;
+  padding:15px 0 0;
+  margin-top: 20px;
+  .column{
+    padding: 5px;
+  }
+  .column.half{
+    width: 50%;
+    float:left;
+    img{
+      width: 100%;
+    }
+    @media (max-width: 450px){
+      &.title{
+        width: 100%;
+        float:none;
+      }
+      &.image{
+        display: none;
+      }
+    }
+  }
+  a, a:hover{
+    text-decoration: none;
+  }
+
+  .title{
+    h5{
+      font-family: $din;
+      color: $black;
+      font-weight: bold;
+      font-size: 16px;
+      line-height: 20px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      text-align: left;
+      letter-spacing: 0.6px;
+      text-transform: none;
+    }
+    p{
+      font-family: $din;
+      color: $satan;
+      font-size: 13px;
+      line-height: 18px;
+      margin: 0;
+    }
+  }
+  .column div.source{
+    margin-bottom: 5px;
+    p{
+      font-family: $din;
+      color: $satan;
+      font-size: 12px;
+      line-height: 12px;
+      margin: 0;
+      img{
+        width: 12px;
+        vertical-align: top;
+      }
+    }
+  }
+}
+
+.attachment.link{
+  figure{
+    margin: 0;
+  }
+}
+
+.attachment.image{
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  margin-bottom: -20px;
+  @media (max-width: 800px){
+    width: calc(100% + 24px);
+    margin-left: -12px;
+  }
+
+  figure{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow:hidden;
+    padding: 0;
+    margin: 0;
+  }
+  img{
+    width: 100%;
+    margin-bottom: -4px;
+    border-radius: 0 0 10px 10px;
+  }
+}
+
+.attachment.video {
+  border-top: 1px solid $politico-line;
+  padding:15px 10px 0;
+  margin-top: 20px;
+  text-align: center;
+  iframe{
+    width: 100%;
+  }
+}
