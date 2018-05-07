@@ -19,7 +19,7 @@ djangorestframework = "*"
 dj-database-url = "*"
 "psycopg2" = "*"
 chatrender = {path = "./..", editable = true}
-django-slackchat-serializer = ">=0.0.4"
+django-slackchat-serializer = ">=0.4.1"
 django-foreignform = ">=0.0.7"
 pillow = "*"
 "boto3" = "*"
