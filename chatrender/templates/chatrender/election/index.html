@@ -5,41 +5,41 @@
 
 {% block meta %}
 <title>{{ channel.meta.title }}</title>
-{%include "chatrender/election/meta/icons.html"%}
-{%include "chatrender/election/meta/social.html"%}
+{%include "chatrender/monday/meta/icons.html"%}
+{%include "chatrender/monday/meta/social.html"%}
 {% endblock %}
 
 {% block styles %}
+<link rel="stylesheet" type="text/css" href="https://www.politico.com/interactives/cdn/fonts/battletoads/icons/politico-battletoads-icons.min.css">
 {%if production%}
-<link rel="stylesheet" href="./main-election-{{hash}}.css">
+<link rel="stylesheet" href="./main-monday-{{hash}}.css">
 {%endif%}
 <script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 {%endblock%}
 
 {%block nav%}
-{%include "chatrender/election/nav.html"%}
+{%include "chatrender/monday/nav.html"%}
 {%endblock%}
 
 {% block header %}
   {%include "chatrender/common/parts/ads/banner.html"%}
   {%include "chatrender/election/header.html"%}
-  <section id="introduction" class="introduction">
-    {{channel.introduction|markdown}}
-  </section>
-  <section class="ask-politico-prompt">
-    <button id="ask-politico">#AskPOLITICO</button>
-  </section>
+  <article class="container">
+    <section id="introduction" class="introduction">
+      {{channel.introduction|markdown}}
+    </section>
+  </article>
 {% endblock %}
 
 {%block content%}
 <div id="blog"></div>
-{%include "chatrender/common/parts/ads/cube.html"%}
+{% include "chatrender/common/parts/ads/cube.html" %}
 {%endblock%}
 
 
 {% block footer %}
 {%include "chatrender/election/elex-footer.html"%}
-{%include "chatrender/common/parts/footer.html"%}
+{%include "chatrender/election/footer.html"%}
 {% endblock %}
 
 {% block scripts %}
@@ -53,6 +53,6 @@
 
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-{%include "chatrender/election/meta/telium.html"%}
-{%include "chatrender/common/parts/ads/script.html"%}
+{% include "chatrender/election/meta/telium.html" %}
+{% include "chatrender/common/parts/ads/script.html" %}
 {% endblock %}

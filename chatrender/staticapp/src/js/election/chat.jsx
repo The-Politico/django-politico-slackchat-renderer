@@ -1,18 +1,20 @@
 import React from 'react';
-import Message from './message';
-import FontAwesomeIcon from '@fortawesome/react-fontawesome';
-import { faArrowUp } from '@fortawesome/fontawesome-free-solid';
-import { animateScroll, Element } from 'react-scroll';
+import { scroller, Element } from 'react-scroll';
 import sortBy from 'lodash/sortBy';
-import StickyNav from './StickyNav';
-import StaticRefer from './StaticRefer';
+import includes from 'lodash/includes';
+import StickyHeader from './stickyHeader';
+import Ask from './ask';
+import Referrals from './referrals';
+
+import MessageDefault from './messages/default';
+import MessageQuestion from './messages/question';
 
 const channelURI = document.getElementsByName('channel-uri')[0].value;
 
 class Chat extends React.Component {
   constructor (props) {
     super(props);
-    this.state = { chat: [] };
+    this.state = { chat: {} };
     this.fetchChat = this.fetchChat.bind(this);
   }
 
@@ -47,23 +49,40 @@ class Chat extends React.Component {
     const chat = this.state.chat;
     if (!chat.messages) return null;
     const users = chat.users;
-    const messages = sortBy(chat.messages, [d => d.timestamp]).map((m, i) => (
-      <Message
-        message={m}
-        user={users[m.user]}
-        users={users}
-        key={m.id}
-        index={i}
-      />
-    ));
+    const messages = sortBy(chat.messages, [d => d.timestamp]).map((m, i) => {
+      if (includes(m.args, 'question')) {
+        return (
+          <MessageQuestion
+            message={m}
+            user={users[m.user]}
+            users={users}
+            key={m.id}
+            index={i}
+            live={this.state.chat.live}
+          />
+        );
+      } else {
+        return (
+          <MessageDefault
+            message={m}
+            user={users[m.user]}
+            users={users}
+            key={m.id}
+            index={i}
+            live={this.state.chat.live}
+          />
+        );
+      }
+    });
 
     return (
       <div>
-        <StickyNav />
-        <StaticRefer />
+        <StickyHeader live={this.state.chat.live} />
+        <Ask live={this.state.chat.live} />
         <Element name='chatTop' />
-        <div className='chat-well'>
+        <div className='chat-well' id='chat-well'>
           {messages}
+          <Element name='chatBottom' />
           <div className='bottom-bumper'>
             <div
               id='loader'
@@ -75,13 +94,21 @@ class Chat extends React.Component {
             </div>
             <button
               onClick={() => {
-                animateScroll.scrollToTop();
+                scroller.scrollTo('chatTop', {
+                  offset: -150,
+                  smooth: true,
+                  duration: 250,
+                });
               }}
             >
-              <FontAwesomeIcon icon={faArrowUp} />
+              Top
             </button>
           </div>
         </div>
+        <Referrals
+          links={chat.extras.links || []}
+          live={this.state.chat.live}
+        />
       </div>
     );
   }

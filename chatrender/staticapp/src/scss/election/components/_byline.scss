@@ -1,0 +1,56 @@
+.byline{
+  .byline-pic{
+    width: 40px;
+    display: inline-block;
+    float: left;
+    figure{
+      margin: 0;
+    }
+    figure img{
+      max-width: 100%;
+      border-radius: 50%;
+    }
+  }
+  .byline-identity{
+    width: calc(100% - 120px);
+    padding: 6px 10px 0;
+    display: inline-block;
+    float: left;
+    line-height: 1em;
+    .name{
+      font-weight: bold;
+      font-size: 20px;
+      display: inline-block;
+
+      @media(max-width: 800px){
+        font-size: 18px;
+      }
+    }
+    .title{
+      font-size: 14px;
+      line-height: 14px;
+      color: $satan;
+      display: inline-block;
+
+      @media(max-width: 800px){
+        font-size: 13px;
+        padding-top:2px;
+      }
+    }
+  }
+  .byline-timestamp{
+    display: inline-block;
+    float: left;
+    width: 70px;
+    font-size: 14px;
+    color: $satan;
+    text-align: right;
+    float:right;
+
+    @media(max-width: 800px){
+      font-size: 13px;
+      padding-top:2px;
+
+    }
+  }
+}

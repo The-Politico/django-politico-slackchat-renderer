@@ -1,0 +1,58 @@
+.referral{
+  position: fixed;
+  bottom: 20px;
+  right: 10px;
+  width: 105px;
+  z-index: 1;
+
+  & > div{
+    position: relative;
+  }
+
+  a:hover{
+    text-decoration: none;
+  }
+
+  a button{
+    font-size: 12px;
+  }
+
+  button{
+    font-size: 14px;
+    width: 100%;
+    display: block;
+    margin-top: 5px;
+    border: 1px solid $politico-light-gray;
+    padding: 5px 10px;
+    background-color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all .2s;
+    text-align: center;
+    img{
+      margin-left: 5px;
+      width: 20px;
+    }
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      background-color: $politico-line;
+    }
+  }
+
+  .fade-enter button {
+    opacity: 0.01;
+  }
+  .fade-enter-active button{
+    transition: all 200ms ease-in;
+  }
+  .fade-exit button{
+    opacity: 1;
+  }
+  .fade-exit-active button{
+    opacity: 0.01;
+    transition: opacity 200ms ease-in;
+  }
+
+}

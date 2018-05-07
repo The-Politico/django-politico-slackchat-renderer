@@ -1,136 +1,29 @@
-@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/normalize";
+@import '~politico-style/scss/base/theme';
 
-@import '~politico-style/scss/elections/states/theme/fonts';
-@import '~politico-style/scss/base/theme/colors/base';
-@import '~politico-style/scss/base/theme/fonts';
-@import '~politico-style/scss/base/components/ads';
+@import './theme/colors';
 
-@import 'footer-nav';
-@import 'sticky-nav';
+@import './components/ask';
+@import './components/attachments';
+@import './components/byline';
+@import './components/header';
+@import './components/message';
+@import './components/reaction';
+@import './components/footer-nav';
+@import './components/well';
+@import './components/stickyHeader';
+@import './components/referrals';
 
-@import '../common/colors';
-@import '../confab/page';
-@import '../confab/well';
-@import '../confab/message';
-@import '../confab/byline';
-@import '../confab/reaction';
-@import '../confab/attachments';
 
-body{
-  font-size: 16px;
+
+.sticky-inner-wrapper{
+  z-index: 2;
 }
 
-.clearfix{
-  &::after {
-    display: block;
-    content: "";
-    clear: both;
-  }
+.header-left svg{
+  width: 25px;
+  height: 25px;
 }
 
-div{
-  box-sizing: border-box;
-}
-
-section.introduction{
-  max-width: 550px;
-  margin: 0 auto;
-  padding: 20px 10px;
-  margin-bottom: 0px;
-
-  @media(max-width: 800px){
-    margin-bottom: 0;
-    padding-bottom: 5px;
-  }
-  p{
-    font-size: 19px;
-    line-height: 25px;
-    line-height: 1.618;
-
-    &:last-of-type{
-      margin-bottom: 0;
-
-    }
-  }
-}
-
-p.chat-brand{
-  margin:20px 0 -10px;
-  font-family: $din;
-  color: grey;
-  span{
-
-    color: $politico-red;
-    font-weight: bold;
-    background:#FFFBCC;
-    padding: 0 2px;
-  }
-}
-
-h1{
-  font-size: 2.5rem;
-}
-
-.sticky-header{
-  width: 100%;
-  h2{
-    font-size: 22px;
-    .fa-bullhorn{
-      color: lightgrey;
-      font-size: 18px;
-      margin-left: 3px;
-    }
-  }
-}
-
-
-.static-refer {
-  position: fixed;
-  bottom: 40px;
-  right: 20px;
-  background-color: white;
-  font-family: $din;
-  border: 1px solid $gray;
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  transition: all .2s;
-  z-index: 100;
-
-  &:hover {
-    background-color: #D3D3D3
-  }
-
-  p {
-    color: black;
-    margin: 0;
-    img{
-      height: 20px;
-      margin-left: 15px;
-      vertical-align: text-bottom;
-    }
-  }
-}
-.ask-politico-prompt{
-  text-align: center;
-  margin: 0px 0 60px;
-  #ask-politico{
-    font-family: $din;
-    font-weight: bold;
-    padding: 10px 15px;
-    font-size: 18px;
-    color: $politico-red;
-    background-color: #fff;
-    border: 1px solid #e1e1e1;
-    outline: none;
-    border-radius: 5px;
-    transition: all .2s;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
-    &:hover{
-      box-shadow: 0 3px 6px rgba(0,0,0,0.12), 0 3px 8px rgba(0,0,0,0.18);
-    }
-    &:active{
-      box-shadow: 0 1px 1px rgba(0,0,0,0.05), 0 1px 2px rgba(0,0,0,0.1);
-    }
-  }
+article.container{
+  margin-bottom: 0;
 }

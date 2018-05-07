@@ -1,0 +1,22 @@
+section.ask{
+  margin: 60px 0;
+  font-family: $din;
+  font-size: 18px;
+  color: $politico-red;
+  text-align: center;
+
+  button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 5px 0 10px;
+    font-family: $din;
+    &:focus{
+      outline: none;
+    }
+
+    &.ask{
+      background: white;
+      color: $politico-medium-gray;
+    }
+  }
+}
