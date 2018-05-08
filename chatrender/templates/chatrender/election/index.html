@@ -5,20 +5,20 @@
 
 {% block meta %}
 <title>{{ channel.meta.title }}</title>
-{%include "chatrender/monday/meta/icons.html"%}
-{%include "chatrender/monday/meta/social.html"%}
+{%include "chatrender/election/meta/icons.html"%}
+{%include "chatrender/election/meta/social.html"%}
 {% endblock %}
 
 {% block styles %}
 <link rel="stylesheet" type="text/css" href="https://www.politico.com/interactives/cdn/fonts/battletoads/icons/politico-battletoads-icons.min.css">
 {%if production%}
-<link rel="stylesheet" href="./main-monday-{{hash}}.css">
+<link rel="stylesheet" href="./main-election-{{hash}}.css">
 {%endif%}
 <script  src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
 {%endblock%}
 
 {%block nav%}
-{%include "chatrender/monday/nav.html"%}
+{%include "chatrender/election/nav.html"%}
 {%endblock%}
 
 {% block header %}
