@@ -21,6 +21,7 @@ dj-database-url = "*"
 chatrender = {path = "./..", editable = true}
 django-slackchat-serializer = ">=0.4.1"
 django-foreignform = ">=0.0.7"
+markslack = ">=0.0.4"
 pillow = "*"
 "boto3" = "*"
 django-storages = "*"

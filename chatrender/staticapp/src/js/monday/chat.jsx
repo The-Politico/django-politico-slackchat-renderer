@@ -2,8 +2,12 @@ import React from 'react';
 import { scroller, Element } from 'react-scroll';
 import sortBy from 'lodash/sortBy';
 import includes from 'lodash/includes';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import faRedoAlt from '@fortawesome/fontawesome-free-solid/faRedoAlt';
+
 import StickyHeader from './stickyHeader';
-import Ask from './ask';
+import Board from './live/board';
+import Bug from './live/bug';
 
 import MessageDefault from './messages/default';
 import MessageQuestion from './messages/question';
@@ -77,7 +81,8 @@ class Chat extends React.Component {
     return (
       <div>
         <StickyHeader live={this.state.chat.live} />
-        <Ask live={this.state.chat.live} />
+        <Board live={this.state.chat.live} />
+        <Bug live={this.state.chat.live} />
         <Element name='chatTop' />
         <div className='chat-well' id='chat-well'>
           {messages}
@@ -100,7 +105,7 @@ class Chat extends React.Component {
                 });
               }}
             >
-              Top
+              <FontAwesomeIcon icon={faRedoAlt} /> From the top
             </button>
           </div>
         </div>

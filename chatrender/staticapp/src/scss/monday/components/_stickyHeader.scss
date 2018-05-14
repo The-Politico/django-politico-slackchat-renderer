@@ -41,13 +41,13 @@
     width: calc(100% - 225px);
     padding-top: 7px;
 
-    @media(max-width: 500px){
+    @media(max-width: 600px){
       width: calc(100% - 75px);
     }
   }
   .buttons{
     width: 225px;
-    @media(max-width: 500px){
+    @media(max-width: 600px){
       width: 75px;
     }
     text-align: right;
@@ -64,7 +64,7 @@
       &.ask{
         background: white;
         color: $politico-medium-gray;
-        @media(max-width: 500px){
+        @media(max-width: 600px){
           display: none;
         }
       }

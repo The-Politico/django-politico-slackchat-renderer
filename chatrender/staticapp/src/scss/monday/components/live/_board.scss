@@ -1,0 +1,60 @@
+section.liveboard{
+  padding: 20px 0px 20px;
+  border-radius: 10px;
+  font-family: $din;
+  font-size: 18px;
+  color: $politico-red;
+  text-align: center;
+
+  max-width: 350px;
+  margin: 40px auto 40px;
+
+  @media(max-width: 360px){
+    margin: 40px 5px 40px;
+  }
+
+  div.fifty{
+    width: 50%;
+    display: inline-block;
+    text-align: left;
+    float: left;
+    h4{
+      font-size: 19px;
+      margin-bottom: 3px;
+      margin-top: 10px;
+    }
+    @media(max-width: 560px){
+
+    }
+  }
+
+
+  h4, h6{
+    color: $politico-dark-gray;
+  }
+  b{
+    color: $politico-red;
+    margin-left: 5px;
+    margin-right: 3px;
+    font-size: 14px;
+    animation: blink 2s steps(8, start) infinite;
+  }
+
+  button{
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 2px 5px 10px;
+    font-family: $din;
+    font-size: 28px;
+    width: calc(100% - 10px);
+    cursor: pointer;
+    background: white;
+    color: $politico-medium-gray;
+    &:focus{
+      outline: none;
+    }
+    &:hover{
+      box-shadow: $boxshadow;
+    }
+  }
+}

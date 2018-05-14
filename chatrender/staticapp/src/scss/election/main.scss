@@ -2,7 +2,6 @@
 
 @import './theme/colors';
 
-@import './components/ask';
 @import './components/attachments';
 @import './components/byline';
 @import './components/header';
@@ -12,7 +11,8 @@
 @import './components/well';
 @import './components/stickyHeader';
 @import './components/referrals';
-
+@import './components/live/board';
+@import './components/live/bug';
 
 
 .sticky-inner-wrapper{

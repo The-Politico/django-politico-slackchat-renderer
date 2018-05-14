@@ -61,16 +61,6 @@ class StickyHeader extends React.Component {
             >
               <b className='bt-icon bt-icon--twitter' /> #AskPOLITICO
             </button>
-            <button
-              className='latest'
-              onClick={() => {
-                scroller.scrollTo('chatBottom', {
-                  offset: -350,
-                  smooth: true,
-                  duration: 250,
-                });
-              }}
-            >Latest</button>
           </div>
         </div>
       </div>

@@ -1,6 +1,5 @@
 .chat-well{
-  max-width: 550px;
-  margin: 20px auto;
+  margin: 20px 0;
   font-family: $din;
 
   @media(max-width: 800px){
@@ -39,6 +38,7 @@
     border-radius: 5px;
     font-size: 14px;
     line-height: 18px;
+    cursor: pointer;
     &:focus{
       outline: none;
     }
@@ -48,6 +48,7 @@
   }
   .bottom-bumper{
     max-width: 550px;
+    min-height: 30px;
     margin: -10px auto 10px;
     position: relative;
     font-size: 14px;

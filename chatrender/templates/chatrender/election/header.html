@@ -16,7 +16,7 @@
     <h1>{{channel.title}}</h1>
     <div class="info">
       <p class="time">
-          {%if channel.live%}<span class="live"><b class="bt-icon bt-icon--circle-solid"></b>LIVE</span> |{%endif%} <span class="timestamp"> <time datetime='{{now|timezone:"America/New_York"|date:"c"}}'>{{ now|timezone:"America/New_York"|date:"N j, Y P" }} EDT</time></span>
+        <span class="timestamp"> <time datetime='{{now|timezone:"America/New_York"|date:"c"}}'>{{ now|timezone:"America/New_York"|date:"N j, Y P" }} EDT</time></span>
       </p>
     </div>
 </header>

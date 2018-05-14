@@ -1,0 +1,60 @@
+.bug{
+  position: fixed;
+  top: 26px;
+  right: -100px;
+  transition: all .2s;
+  z-index: 101;
+
+  @media(min-width: 601px){
+    top: -65px;
+    right: calc((100% - 550px) / 2 - 25px);
+    z-index: 99;
+  }
+
+  &.active{
+    right: 5px;
+    @media(min-width: 601px){
+      top: 65px;
+      right: calc((100% - 550px) / 2 - 25px);
+    }
+  }
+
+  button{
+    font-family: $din;
+    background-color: $politico-chat-red;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    border: 0;
+    text-align: center;
+    padding: 5px 10px;
+    font-size: 26px;
+    cursor: pointer;
+    box-shadow: $boxshadow;
+
+    svg{
+      color: white;
+      animation: dropper linear 4s infinite;
+    }
+
+    &:hover {
+      border: 2px solid $politico-chat-red;
+    }
+
+
+    &:focus{
+      outline: none;
+    }
+  }
+}
+
+@keyframes dropper {
+    0%   {transform: translateY(0px);}
+    25%  {transform: translateY(0px);}
+    30%  {transform: translateY(3px);}
+    35%  {transform: translateY(0px);}
+    40%  {transform: translateY(3px);}
+    45%  {transform: translateY(0px);}
+    100% {transform: translateY(0px);}
+}
