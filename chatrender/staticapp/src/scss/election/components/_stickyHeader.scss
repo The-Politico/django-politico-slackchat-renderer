@@ -55,6 +55,8 @@
     button{
       padding: 5px 10px;
       border-radius: 5px;
+      border:1px solid lightgrey;
+      cursor: pointer;
       margin: 0 5px;
       font-family: $din;
       &:focus{
