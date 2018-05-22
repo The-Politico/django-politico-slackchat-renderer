@@ -1,4 +1,5 @@
 {%load tz%}
+{%load date_tags%}
 <header class="center">
   <div class="share">
     <a href="" class="bt-icon custom-icon--facebook" target="_blank">
@@ -16,7 +17,7 @@
     <h1>{{channel.title}}</h1>
     <div class="info">
       <p class="time">
-        <span class="timestamp"> <time datetime='{{now|timezone:"America/New_York"|date:"c"}}'>{{ now|timezone:"America/New_York"|date:"N j, Y P" }} EDT</time></span>
+        <span class="timestamp"> <time datetime='{{channel.publish_time|timestamp|timezone:"America/New_York"|date:"c"}}'>{{ channel.publish_time|timestamp|timezone:"America/New_York"|date:"N j, Y P" }} EDT</time></span>
       </p>
     </div>
 </header>

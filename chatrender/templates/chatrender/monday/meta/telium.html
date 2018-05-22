@@ -1,3 +1,5 @@
+{%load tz%}
+{%load date_tags%}
 <script type="text/javascript">
 var utag_data = {
   "page_level_1":"interactives",
@@ -7,7 +9,7 @@ var utag_data = {
   "page_type":"interactives",
   "site_domain":"www.politico.com",
   "internal_site_id":"politico",
-  "page_name":"{{ channel.meta.title }}",
+  "page_name":'2018 Election:Results:Chat:Midterm Mondays:{{ channel.publish_time|timestamp|timezone:"America/New_York"|date:"b-d" }}',
   "content_author":"POLITICO Staff",
   "content_byline":"By POLITICO Staff",
   "distribution_channel":"politico",
