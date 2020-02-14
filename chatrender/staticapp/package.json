@@ -73,6 +73,6 @@
     "webpack-stream": "latest",
     "whatwg-fetch": "latest",
     "yargs": "latest",
-    "yarn": "^1.3.2"
+    "yarn": "^1.22.0"
   }
 }
