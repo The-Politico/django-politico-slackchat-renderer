@@ -46,7 +46,7 @@
     "intersection-observer": "^0.5.0",
     "lodash": "latest",
     "marked": "^0.3.12",
-    "moment-timezone": "^0.5.14",
+    "moment-timezone": "^0.5.35",
     "node-sass": "latest",
     "open": "latest",
     "optimize-css-assets-webpack-plugin": "latest",
